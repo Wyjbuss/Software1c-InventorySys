@@ -1,0 +1,11 @@
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\bin\Debug\WyattBussellC968Software1C#.exe.config
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\bin\Debug\WyattBussellC968Software1C#.exe
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\bin\Debug\WyattBussellC968Software1C#.pdb
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.csproj.AssemblyReference.cache
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.Properties.Resources.resources
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.csproj.GenerateResource.cache
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.csproj.CoreCompileInputs.cache
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.exe
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.pdb
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.FormAddParts.resources
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.mainApplicationWindow.resources
