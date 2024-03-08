@@ -62,6 +62,7 @@
             // radioButtonInHouse
             // 
             this.radioButtonInHouse.AutoSize = true;
+            this.radioButtonInHouse.Checked = true;
             this.radioButtonInHouse.Location = new System.Drawing.Point(269, 35);
             this.radioButtonInHouse.Name = "radioButtonInHouse";
             this.radioButtonInHouse.Size = new System.Drawing.Size(68, 17);
@@ -77,9 +78,9 @@
             this.radioButtonOutsourced.Name = "radioButtonOutsourced";
             this.radioButtonOutsourced.Size = new System.Drawing.Size(80, 17);
             this.radioButtonOutsourced.TabIndex = 2;
-            this.radioButtonOutsourced.TabStop = true;
             this.radioButtonOutsourced.Text = "Outsourced";
             this.radioButtonOutsourced.UseVisualStyleBackColor = true;
+            this.radioButtonOutsourced.CheckedChanged += new System.EventHandler(this.radioButtonOutsourced_CheckedChanged);
             // 
             // labelID
             // 
@@ -140,12 +141,13 @@
             this.labelLocationName.AutoSize = true;
             this.labelLocationName.Location = new System.Drawing.Point(252, 340);
             this.labelLocationName.Name = "labelLocationName";
-            this.labelLocationName.Size = new System.Drawing.Size(65, 13);
+            this.labelLocationName.Size = new System.Drawing.Size(62, 13);
             this.labelLocationName.TabIndex = 9;
-            this.labelLocationName.Text = "No Location";
+            this.labelLocationName.Text = "Machine ID";
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(158, 116);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -153,6 +155,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.LightCoral;
             this.textBox3.Location = new System.Drawing.Point(334, 337);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
@@ -160,6 +163,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.LightCoral;
             this.textBox4.Location = new System.Drawing.Point(158, 156);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
@@ -167,6 +171,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.LightCoral;
             this.textBox5.Location = new System.Drawing.Point(174, 195);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
@@ -174,6 +179,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.Color.LightCoral;
             this.textBox6.Location = new System.Drawing.Point(186, 236);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
@@ -181,6 +187,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.BackColor = System.Drawing.Color.LightCoral;
             this.textBox7.Location = new System.Drawing.Point(150, 277);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
@@ -188,6 +195,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.BackColor = System.Drawing.Color.LightCoral;
             this.textBox8.Location = new System.Drawing.Point(334, 277);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);

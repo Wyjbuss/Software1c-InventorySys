@@ -19,8 +19,13 @@ namespace WyattBussellC968Software1C_
 
         private void buttonCancel_MouseClick(object sender, MouseEventArgs e)
         {
-            FormAddParts frm = new FormAddParts();
-            frm.Close();
+            this.Close();
+        }
+
+        private void radioButtonOutsourced_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioButtonOutsourced.Checked) { this.labelLocationName.Text = "Company Name".ToString(); };
+            if (!this.radioButtonOutsourced.Checked) { this.labelLocationName.Text = "MachineID".ToString(); };
         }
     }
 }
