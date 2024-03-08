@@ -39,12 +39,12 @@
             this.labelMax = new System.Windows.Forms.Label();
             this.labelLocationName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxLocation = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxInventory = new System.Windows.Forms.TextBox();
+            this.textBoxPriceCost = new System.Windows.Forms.TextBox();
+            this.textBoxMax = new System.Windows.Forms.TextBox();
+            this.textBoxMin = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -153,53 +153,59 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxLocation
             // 
-            this.textBox3.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox3.Location = new System.Drawing.Point(334, 337);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 12;
+            this.textBoxLocation.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxLocation.Location = new System.Drawing.Point(334, 337);
+            this.textBoxLocation.Name = "textBoxLocation";
+            this.textBoxLocation.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLocation.TabIndex = 12;
+            this.textBoxLocation.TextChanged += new System.EventHandler(this.textBoxLocation_TextChanged);
             // 
-            // textBox4
+            // textBoxName
             // 
-            this.textBox4.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox4.Location = new System.Drawing.Point(158, 156);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 13;
+            this.textBoxName.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxName.Location = new System.Drawing.Point(158, 156);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.TabIndex = 13;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // textBox5
+            // textBoxInventory
             // 
-            this.textBox5.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox5.Location = new System.Drawing.Point(174, 195);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 14;
+            this.textBoxInventory.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxInventory.Location = new System.Drawing.Point(174, 195);
+            this.textBoxInventory.Name = "textBoxInventory";
+            this.textBoxInventory.Size = new System.Drawing.Size(100, 20);
+            this.textBoxInventory.TabIndex = 14;
+            this.textBoxInventory.TextChanged += new System.EventHandler(this.textBoxInventory_TextChanged);
             // 
-            // textBox6
+            // textBoxPriceCost
             // 
-            this.textBox6.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox6.Location = new System.Drawing.Point(186, 236);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 15;
+            this.textBoxPriceCost.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxPriceCost.Location = new System.Drawing.Point(186, 236);
+            this.textBoxPriceCost.Name = "textBoxPriceCost";
+            this.textBoxPriceCost.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPriceCost.TabIndex = 15;
+            this.textBoxPriceCost.TextChanged += new System.EventHandler(this.textBoxPriceCost_TextChanged);
             // 
-            // textBox7
+            // textBoxMax
             // 
-            this.textBox7.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox7.Location = new System.Drawing.Point(150, 277);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 16;
+            this.textBoxMax.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxMax.Location = new System.Drawing.Point(150, 277);
+            this.textBoxMax.Name = "textBoxMax";
+            this.textBoxMax.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMax.TabIndex = 16;
+            this.textBoxMax.TextChanged += new System.EventHandler(this.textBoxMax_TextChanged);
             // 
-            // textBox8
+            // textBoxMin
             // 
-            this.textBox8.BackColor = System.Drawing.Color.LightCoral;
-            this.textBox8.Location = new System.Drawing.Point(334, 277);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 17;
+            this.textBoxMin.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxMin.Location = new System.Drawing.Point(334, 277);
+            this.textBoxMin.Name = "textBoxMin";
+            this.textBoxMin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMin.TabIndex = 17;
+            this.textBoxMin.TextChanged += new System.EventHandler(this.textBoxMin_TextChanged);
             // 
             // buttonSave
             // 
@@ -228,12 +234,12 @@
             this.ClientSize = new System.Drawing.Size(510, 450);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxMin);
+            this.Controls.Add(this.textBoxMax);
+            this.Controls.Add(this.textBoxPriceCost);
+            this.Controls.Add(this.textBoxInventory);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelLocationName);
             this.Controls.Add(this.labelMax);
@@ -265,12 +271,12 @@
         private System.Windows.Forms.Label labelMax;
         private System.Windows.Forms.Label labelLocationName;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxLocation;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxInventory;
+        private System.Windows.Forms.TextBox textBoxPriceCost;
+        private System.Windows.Forms.TextBox textBoxMax;
+        private System.Windows.Forms.TextBox textBoxMin;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
     }
