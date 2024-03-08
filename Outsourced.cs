@@ -8,5 +8,7 @@ namespace WyattBussellC968Software1C_
 {
     internal class Outsourced
     {
+
+        public string CompanyName;
     }
 }

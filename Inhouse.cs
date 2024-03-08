@@ -8,5 +8,6 @@ namespace WyattBussellC968Software1C_
 {
     internal class Inhouse
     {
+        public int MachineID;
     }
 }
