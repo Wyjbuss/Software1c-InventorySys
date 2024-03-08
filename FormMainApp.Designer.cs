@@ -67,6 +67,7 @@
             this.buttonAddParts.TabIndex = 1;
             this.buttonAddParts.Text = "Add";
             this.buttonAddParts.UseVisualStyleBackColor = true;
+            this.buttonAddParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonAddParts_MouseClick);
             // 
             // buttonModifyParts
             // 
@@ -76,6 +77,7 @@
             this.buttonModifyParts.TabIndex = 2;
             this.buttonModifyParts.Text = "Modify";
             this.buttonModifyParts.UseVisualStyleBackColor = true;
+            this.buttonModifyParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonModifyParts_MouseClick);
             // 
             // buttonDeleteParts
             // 
@@ -175,6 +177,7 @@
             this.buttonModifyProducts.TabIndex = 11;
             this.buttonModifyProducts.Text = "Modify";
             this.buttonModifyProducts.UseVisualStyleBackColor = true;
+            this.buttonModifyProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonModifyProducts_MouseClick);
             // 
             // buttonAddProducts
             // 
@@ -184,6 +187,7 @@
             this.buttonAddProducts.TabIndex = 10;
             this.buttonAddProducts.Text = "Add";
             this.buttonAddProducts.UseVisualStyleBackColor = true;
+            this.buttonAddProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonAddProducts_MouseClick);
             // 
             // dataGridViewProducts
             // 

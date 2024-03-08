@@ -17,7 +17,7 @@ namespace WyattBussellC968Software1C_
             InitializeComponent();
 
             //sets that data source, the data auto displays in the DataGridView
-            dataGridViewParts.DataSource = parts.part;
+            dataGridViewParts.DataSource = Parts.part;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -56,6 +56,30 @@ namespace WyattBussellC968Software1C_
         private void buttonAddParts_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonAddParts_MouseClick(object sender, MouseEventArgs e)
+        {
+            FormAddParts frm = new FormAddParts();
+            frm.Show();
+        }
+
+        private void buttonModifyParts_MouseClick(object sender, MouseEventArgs e)
+        {
+            FormModifyParts frm = new FormModifyParts();
+            frm.Show();
+        }
+
+        private void buttonAddProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+            FormAddProducts frm = new FormAddProducts();
+            frm.Show();
+        }
+
+        private void buttonModifyProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+            FormModifyProducts frm = new FormModifyProducts();
+            frm.Show();
         }
     }
 }
