@@ -9,9 +9,19 @@ namespace WyattBussellC968Software1C_
 {
     internal class Inventory
     {
-        public BindingList<Products> products;
-        public BindingList<Parts> AllParts;
+        public static BindingList<Products> products;
+        public static BindingList<Parts> AllParts = new BindingList<Parts>();
 
+        
+
+
+        static Inventory()
+        {
+            AllParts.Add(new Parts { PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 8, Min = 1, Max = 50 });
+            AllParts.Add(new Parts { PartID = 2, Name = "Broad", Price = 200.15M, InStock = 159, Min = 1, Max = 500 });
+            AllParts.Add(new Parts { PartID = 3, Name = "Dagger", Price = 90.70M, InStock = 13, Min = 1, Max = 50 });
+            AllParts.Add(new Parts { PartID = 4, Name = "Zwei-Hander", Price = 900.00M, InStock = 16, Min = 1, Max = 50 });
+        }
         public void addProduct()
         {
             

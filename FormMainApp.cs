@@ -18,7 +18,7 @@ namespace WyattBussellC968Software1C_
             InitializeComponent();
 
             //sets that data source, the data auto displays in the DataGridView
-            dataGridViewParts.DataSource = Parts.part;
+            dataGridViewParts.DataSource = Inventory.AllParts;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -27,6 +27,7 @@ namespace WyattBussellC968Software1C_
             dataGridViewParts.ReadOnly = true;
             dataGridViewParts.MultiSelect = false;
             dataGridViewParts.AllowUserToAddRows = false;
+            
             
         }
 
@@ -87,6 +88,24 @@ namespace WyattBussellC968Software1C_
         private void buttonExit_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridViewParts_SelectionChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(dataGridViewParts.CurrentRow.ToString());
+        }
+
+        private void buttonDeleteParts_MouseClick(object sender, MouseEventArgs e)
+        {           
+
+            if (Inventory.AllParts.Count > 0)
+            {
+                int currentIndex = dataGridViewParts.CurrentRow.Index;
+                Inventory.AllParts.RemoveAt(currentIndex);
+            }
+            else { /* Error, cant remove item when there is no item */ }
+            
+
         }
     }
 }

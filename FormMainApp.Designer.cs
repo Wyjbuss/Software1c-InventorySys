@@ -58,6 +58,7 @@
             this.dataGridViewParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellClick);
             this.dataGridViewParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewParts_DataBindingComplete);
+            this.dataGridViewParts.SelectionChanged += new System.EventHandler(this.dataGridViewParts_SelectionChanged);
             // 
             // buttonAddParts
             // 
@@ -87,6 +88,7 @@
             this.buttonDeleteParts.TabIndex = 3;
             this.buttonDeleteParts.Text = "Delete";
             this.buttonDeleteParts.UseVisualStyleBackColor = true;
+            this.buttonDeleteParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDeleteParts_MouseClick);
             // 
             // buttonSearchParts
             // 
