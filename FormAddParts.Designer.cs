@@ -216,6 +216,7 @@
             this.buttonSave.TabIndex = 18;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSave_MouseClick);
             // 
             // buttonCancel
             // 

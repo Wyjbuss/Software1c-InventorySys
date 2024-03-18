@@ -39,32 +39,55 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxName.Text.Length <= 0) { textBoxName.BackColor = Color.LightCoral; };
-            if (textBoxName.Text.Length > 0) { textBoxName.BackColor = Color.White; };
+            if (textBoxName.Text.Length <= 0) { textBoxName.BackColor = Color.LightCoral; 
+            }else if (textBoxName.Text.Length > 0) { textBoxName.BackColor = Color.White; };
         }
 
         private void textBoxInventory_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxInventory.Text.Length <= 0) { textBoxInventory.BackColor = Color.LightCoral; };
-            if (textBoxInventory.Text.Length > 0) { textBoxInventory.BackColor = Color.White; };
+            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber))
+            {
+                textBoxInventory.BackColor = Color.White;
+            }
+            else { textBoxInventory.BackColor = Color.LightCoral; };
         }
 
         private void textBoxPriceCost_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxPriceCost.Text.Length <= 0) { textBoxPriceCost.BackColor = Color.LightCoral; };
-            if (textBoxPriceCost.Text.Length > 0) { textBoxPriceCost.BackColor = Color.White; };
+            if (textBoxPriceCost.Text.Length <= 0) 
+            {   
+                textBoxPriceCost.BackColor = Color.LightCoral;
+            }
+            else if (!textBoxPriceCost.Text.Any(char.IsDigit) || !textBoxPriceCost.Text.Any(char.IsPunctuation) || textBoxPriceCost.Text.Any(char.IsLetter))
+            { 
+                textBoxPriceCost.BackColor = Color.LightCoral; 
+            }
+            else if (textBoxPriceCost.Text.Length > 0 && (textBoxPriceCost.Text.Any(char.IsDigit) || textBoxPriceCost.Text.Any(char.IsPunctuation)) )
+            { 
+                textBoxPriceCost.BackColor = Color.White; 
+            };
         }
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMax.Text.Length <= 0) { textBoxMax.BackColor = Color.LightCoral; };
-            if (textBoxMax.Text.Length > 0) { textBoxMax.BackColor = Color.White; };
+            if (textBoxMax.Text.Length <= 0) 
+            { 
+                textBoxMax.BackColor = Color.LightCoral; 
+            }
+            else if (!textBoxMax.Text.Any(char.IsNumber))
+            {
+                textBoxMax.BackColor = Color.LightCoral;
+            }
+            else if (textBoxMax.Text.Length > 0) { textBoxMax.BackColor = Color.White; };
         }
 
         private void textBoxMin_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMin.Text.Length <= 0) { textBoxMin.BackColor = Color.LightCoral; };
-            if (textBoxMin.Text.Length > 0) { textBoxMin.BackColor = Color.White; };
+            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber))
+            {
+                textBoxMin.BackColor = Color.White;
+            }
+            else { textBoxMin.BackColor = Color.LightCoral; };
         }
 
         private void textBoxLocation_TextChanged(object sender, EventArgs e)
@@ -83,6 +106,11 @@ namespace WyattBussellC968Software1C_
                 textBoxLocation.BackColor = Color.LightCoral;
             }
             else { textBoxLocation.BackColor = Color.White; }
+        }
+
+        private void buttonSave_MouseClick(object sender, MouseEventArgs e)
+        {
+            //call add part from inventory class
         }
     }
 }
