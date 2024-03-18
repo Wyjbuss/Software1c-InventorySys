@@ -9,3 +9,6 @@ C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\Wyat
 C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C#.pdb
 C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.FormAddParts.resources
 C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.mainApplicationWindow.resources
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.FormAddProducts.resources
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.FormModifyProducts.resources
+C:\Users\bussellw\Desktop\VS Projects\WyattBussellC968Software1C#\obj\Debug\WyattBussellC968Software1C_.FormModifyParts.resources

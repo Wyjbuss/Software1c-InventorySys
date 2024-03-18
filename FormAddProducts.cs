@@ -19,8 +19,7 @@ namespace WyattBussellC968Software1C_
 
         private void buttonCancel_MouseClick(object sender, MouseEventArgs e)
         {
-            FormAddProducts frm = new FormAddProducts();
-            frm.Hide();
+            this.Close();
         }
     }
 }

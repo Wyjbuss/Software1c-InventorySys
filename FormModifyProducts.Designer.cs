@@ -115,6 +115,7 @@
             this.buttonCancel.TabIndex = 61;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonCancel_MouseClick);
             // 
             // buttonSave
             // 

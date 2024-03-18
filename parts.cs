@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WyattBussellC968Software1C_
 {
-    public class parts
+    public class Parts
     {
 
         public int PartID;
@@ -18,15 +18,15 @@ namespace WyattBussellC968Software1C_
         public int Max {  get; set; }
 
 
-        public static BindingList<parts> part = new BindingList<parts>();
+        public static BindingList<Parts> part = new BindingList<Parts>();
 
 
-        static parts()
+        static Parts()
         {
-            part.Add(new parts{ PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 15, Min = 1, Max = 5 });
-            part.Add(new parts { PartID = 1, Name = "Broad", Price = 200.15M, InStock = 15, Min = 1, Max = 5 });
-            part.Add(new parts { PartID = 1, Name = "Dagger", Price = 90.70M, InStock = 15, Min = 1, Max = 5 });
-            part.Add(new parts { PartID = 1, Name = "Zwei-Hander", Price = 900.00M, InStock = 15, Min = 1, Max = 5 });
+            part.Add(new Parts{ PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 15, Min = 1, Max = 5 });
+            part.Add(new Parts { PartID = 1, Name = "Broad", Price = 200.15M, InStock = 15, Min = 1, Max = 5 });
+            part.Add(new Parts { PartID = 1, Name = "Dagger", Price = 90.70M, InStock = 15, Min = 1, Max = 5 });
+            part.Add(new Parts { PartID = 1, Name = "Zwei-Hander", Price = 900.00M, InStock = 15, Min = 1, Max = 5 });
         }
     }
 }

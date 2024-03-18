@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace WyattBussellC968Software1C_
             dataGridViewParts.ReadOnly = true;
             dataGridViewParts.MultiSelect = false;
             dataGridViewParts.AllowUserToAddRows = false;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,6 +82,11 @@ namespace WyattBussellC968Software1C_
         {
             FormModifyProducts frm = new FormModifyProducts();
             frm.Show();
+        }
+
+        private void buttonExit_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
         }
     }
 }

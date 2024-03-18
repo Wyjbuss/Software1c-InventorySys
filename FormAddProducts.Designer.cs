@@ -77,6 +77,7 @@
             // 
             // textBoxMin
             // 
+            this.textBoxMin.BackColor = System.Drawing.Color.LightCoral;
             this.textBoxMin.Location = new System.Drawing.Point(210, 267);
             this.textBoxMin.Name = "textBoxMin";
             this.textBoxMin.Size = new System.Drawing.Size(100, 20);
@@ -84,6 +85,7 @@
             // 
             // textBoxMax
             // 
+            this.textBoxMax.BackColor = System.Drawing.Color.LightCoral;
             this.textBoxMax.Location = new System.Drawing.Point(47, 264);
             this.textBoxMax.Name = "textBoxMax";
             this.textBoxMax.Size = new System.Drawing.Size(100, 20);
@@ -91,6 +93,7 @@
             // 
             // textBoxPriceCost
             // 
+            this.textBoxPriceCost.BackColor = System.Drawing.Color.LightCoral;
             this.textBoxPriceCost.Location = new System.Drawing.Point(83, 223);
             this.textBoxPriceCost.Name = "textBoxPriceCost";
             this.textBoxPriceCost.Size = new System.Drawing.Size(100, 20);
@@ -98,6 +101,7 @@
             // 
             // textBoxInventory
             // 
+            this.textBoxInventory.BackColor = System.Drawing.Color.LightCoral;
             this.textBoxInventory.Location = new System.Drawing.Point(71, 182);
             this.textBoxInventory.Name = "textBoxInventory";
             this.textBoxInventory.Size = new System.Drawing.Size(100, 20);
@@ -105,6 +109,7 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.BackColor = System.Drawing.Color.LightCoral;
             this.textBoxName.Location = new System.Drawing.Point(55, 143);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
@@ -112,6 +117,7 @@
             // 
             // textBoxID
             // 
+            this.textBoxID.Enabled = false;
             this.textBoxID.Location = new System.Drawing.Point(55, 103);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 20);
