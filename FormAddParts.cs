@@ -27,12 +27,22 @@ namespace WyattBussellC968Software1C_
             if (this.radioButtonOutsourced.Checked) 
             { 
                 this.labelLocationName.Text = "Company Name".ToString();
-                if (textBoxLocation.Text.Any(char.IsDigit)){ textBoxLocation.BackColor = Color.LightCoral; } else { textBoxLocation.BackColor = Color.White; }
+                if (!textBoxLocation.Text.Any(char.IsLetter))
+                { 
+                    textBoxLocation.BackColor = Color.LightCoral; 
+                }
+                else if (textBoxLocation.Text.Length <= 0) { textBoxLocation.BackColor = Color.LightCoral; }
+                else { textBoxLocation.BackColor = Color.White; }
             }
             else if (!this.radioButtonOutsourced.Checked) 
             { 
                 this.labelLocationName.Text = "MachineID".ToString(); 
-                if (!textBoxLocation.Text.All(char.IsDigit)) { textBoxLocation.BackColor = Color.LightCoral; } else { textBoxLocation.BackColor = Color.White; }
+                if (!textBoxLocation.Text.All(char.IsNumber)) 
+                {
+                    textBoxLocation.BackColor = Color.LightCoral; 
+                }
+                else if (textBoxLocation.Text.Length <= 0) { textBoxLocation.BackColor = Color.LightCoral; }
+                else { textBoxLocation.BackColor = Color.White; }
             };
         }
 
@@ -41,10 +51,26 @@ namespace WyattBussellC968Software1C_
         {
             if (textBoxName.Text.Length <= 0) { textBoxName.BackColor = Color.LightCoral; 
             }else if (textBoxName.Text.Length > 0) { textBoxName.BackColor = Color.White; };
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
         }
 
         private void textBoxInventory_TextChanged(object sender, EventArgs e)
         {
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
+
+
             if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber))
             {
                 textBoxInventory.BackColor = Color.White;
@@ -66,6 +92,13 @@ namespace WyattBussellC968Software1C_
             { 
                 textBoxPriceCost.BackColor = Color.White; 
             };
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
         }
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
@@ -79,6 +112,13 @@ namespace WyattBussellC968Software1C_
                 textBoxMax.BackColor = Color.LightCoral;
             }
             else if (textBoxMax.Text.Length > 0) { textBoxMax.BackColor = Color.White; };
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
         }
 
         private void textBoxMin_TextChanged(object sender, EventArgs e)
@@ -88,6 +128,13 @@ namespace WyattBussellC968Software1C_
                 textBoxMin.BackColor = Color.White;
             }
             else { textBoxMin.BackColor = Color.LightCoral; };
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
         }
 
         private void textBoxLocation_TextChanged(object sender, EventArgs e)
@@ -106,11 +153,34 @@ namespace WyattBussellC968Software1C_
                 textBoxLocation.BackColor = Color.LightCoral;
             }
             else { textBoxLocation.BackColor = Color.White; }
+
+            //if all of the text feilds are white then save button is active
+            if (textBoxName.BackColor == Color.White && textBoxInventory.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxLocation.BackColor == Color.White)
+            {
+                buttonSave.Enabled = true;
+            }
+            else buttonSave.Enabled = false;
+
         }
 
         private void buttonSave_MouseClick(object sender, MouseEventArgs e)
         {
+            
             //call add part from inventory class
+            string currentName = textBoxName.Text;
+            decimal currentPrice = decimal.Parse( textBoxPriceCost.Text);
+            int currentInSock = int.Parse(textBoxInventory.Text);
+            int currentMax = int.Parse(textBoxMax.Text);
+            int currentMin = int.Parse(textBoxMin.Text);
+            Inventory.AllParts.Add(new Parts { 
+                PartID = Inventory.AllParts.Count + 1, 
+                Name = currentName, 
+                Price = currentPrice, 
+                InStock = currentInSock, 
+                Min = currentMin, 
+                Max = currentMax 
+            });
+            this.Close();
         }
     }
 }
