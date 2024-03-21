@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WyattBussellC968Software1C_
 {
-    public partial class FormAddParts : Form
+    public partial class FormAddParts : Form 
     {
         public FormAddParts()
         {
@@ -165,22 +165,36 @@ namespace WyattBussellC968Software1C_
 
         private void buttonSave_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
             //call add part from inventory class
             string currentName = textBoxName.Text;
-            decimal currentPrice = decimal.Parse( textBoxPriceCost.Text);
+            decimal currentPrice = decimal.Parse(textBoxPriceCost.Text);
             int currentInSock = int.Parse(textBoxInventory.Text);
             int currentMax = int.Parse(textBoxMax.Text);
             int currentMin = int.Parse(textBoxMin.Text);
-            Inventory.AllParts.Add(new Parts { 
-                PartID = Inventory.AllParts.Count + 1, 
-                Name = currentName, 
-                Price = currentPrice, 
-                InStock = currentInSock, 
-                Min = currentMin, 
-                Max = currentMax 
-            });
+
+            Parts currentPart = new Parts();
+            currentPart.PartID = Inventory.AllParts.Count + 1;
+            currentPart.Name = currentName;
+            currentPart.Price = currentPrice;
+            currentPart.InStock = currentInSock;
+            currentPart.Max = currentMax;
+            currentPart.Min = currentMin;            
+            
+
+            try
+            {
+                //Inventory.addPart(currentPart.PartID);
+                Inventory.AllParts.Add(currentPart);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Error with adding a part");
+            }
             this.Close();
+            
+
         }
     }
 }

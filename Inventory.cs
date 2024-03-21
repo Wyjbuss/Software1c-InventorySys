@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WyattBussellC968Software1C_
 {
-    internal class Inventory
+    internal class Inventory : Parts
     {
         public static BindingList<Products> products;
         public static BindingList<Parts> AllParts = new BindingList<Parts>();
@@ -41,8 +42,11 @@ namespace WyattBussellC968Software1C_
 
         }
 
-        public void addPart(int partId)
+        public static void addPart(int partId)
         {
+            Parts currentPart = AllParts[partId];
+            Console.WriteLine(currentPart);
+            AllParts.Add(currentPart);
 
         }
 
