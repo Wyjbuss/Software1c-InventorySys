@@ -186,13 +186,14 @@ namespace WyattBussellC968Software1C_
             {
                 //Inventory.addPart(currentPart.PartID);
                 Inventory.AllParts.Add(currentPart);
+                this.Close();
             }
             catch (Exception)
             {
 
                 Console.WriteLine("Error with adding a part");
             }
-            this.Close();
+            
             
 
         }
