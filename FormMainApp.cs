@@ -19,6 +19,7 @@ namespace WyattBussellC968Software1C_
 
             //sets that data source, the data auto displays in the DataGridView
             dataGridViewParts.DataSource = Inventory.AllParts;
+            dataGridViewProducts.DataSource = Inventory.products;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -105,6 +106,11 @@ namespace WyattBussellC968Software1C_
             }
             else { /* Error, cant remove item when there is no item */ }
             
+
+        }
+
+        private void dataGridViewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
