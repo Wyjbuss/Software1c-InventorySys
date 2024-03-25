@@ -88,6 +88,7 @@
             this.buttonDeleteParts.TabIndex = 3;
             this.buttonDeleteParts.Text = "Delete";
             this.buttonDeleteParts.UseVisualStyleBackColor = true;
+            this.buttonDeleteParts.Click += new System.EventHandler(this.buttonDeleteParts_Click);
             this.buttonDeleteParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDeleteParts_MouseClick);
             // 
             // buttonSearchParts

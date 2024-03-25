@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace WyattBussellC968Software1C_
 {
-    internal class Inventory : Parts
+    internal class Inventory
     {
-        public static BindingList<Products> products;
+        public static BindingList<Products> Products;
         public static BindingList<Parts> AllParts = new BindingList<Parts>();
 
         
@@ -18,10 +18,10 @@ namespace WyattBussellC968Software1C_
 
         static Inventory()
         {
-            AllParts.Add(new Parts { PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 8, Min = 1, Max = 50 });
-            AllParts.Add(new Parts { PartID = 2, Name = "Broad", Price = 200.15M, InStock = 159, Min = 1, Max = 500 });
-            AllParts.Add(new Parts { PartID = 3, Name = "Dagger", Price = 90.70M, InStock = 13, Min = 1, Max = 50 });
-            AllParts.Add(new Parts { PartID = 4, Name = "Zwei-Hander", Price = 900.00M, InStock = 16, Min = 1, Max = 50 });
+            //AllParts.Add(new Parts { PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 8, Min = 1, Max = 50 });
+            //AllParts.Add(new Parts { PartID = 2, Name = "Broad", Price = 200.15M, InStock = 159, Min = 1, Max = 500 });
+            //AllParts.Add(new Parts { PartID = 3, Name = "Dagger", Price = 90.70M, InStock = 13, Min = 1, Max = 50 });
+            //AllParts.Add(new Parts { PartID = 4, Name = "Zwei-Hander", Price = 900.00M, InStock = 16, Min = 1, Max = 50 });
         }
         public void addProduct()
         {
@@ -42,17 +42,29 @@ namespace WyattBussellC968Software1C_
 
         }
 
-        public static void addPart(int partId)
+        public static void addPart(Parts thisPart)
         {
-            Parts currentPart = AllParts[partId];
-            Console.WriteLine(currentPart);
-            AllParts.Add(currentPart);
+
+            AllParts.Add(thisPart);
 
         }
 
-        public bool deletePart(int partId)
+        public bool deletePart(Parts thisPart)
         {
-            return false;
+            try
+            {
+                //removes part from list
+                AllParts.Remove(thisPart);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("error deleting item");
+                return false;
+            }
+            
+            
         }
 
         public Parts lookupPart(int partId) {  return null; }

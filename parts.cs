@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WyattBussellC968Software1C_
 {
-    public class Parts
+    public abstract class Parts
     {
         public int PartID { get; set; }
         public string Name { get; set; }

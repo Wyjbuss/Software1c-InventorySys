@@ -13,13 +13,14 @@ namespace WyattBussellC968Software1C_
 {
     public partial class mainApplicationWindow : Form
     {
+        Parts selectedPart = null;
         public mainApplicationWindow()
         {
             InitializeComponent();
 
             //sets that data source, the data auto displays in the DataGridView
             dataGridViewParts.DataSource = Inventory.AllParts;
-            dataGridViewProducts.DataSource = Inventory.products;
+            dataGridViewProducts.DataSource = Inventory.Products;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -93,7 +94,7 @@ namespace WyattBussellC968Software1C_
 
         private void dataGridViewParts_SelectionChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(dataGridViewParts.CurrentRow.ToString());
+            
         }
 
         private void buttonDeleteParts_MouseClick(object sender, MouseEventArgs e)
@@ -112,6 +113,11 @@ namespace WyattBussellC968Software1C_
         private void dataGridViewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonDeleteParts_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

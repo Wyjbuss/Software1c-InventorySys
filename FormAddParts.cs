@@ -172,29 +172,73 @@ namespace WyattBussellC968Software1C_
             int currentInSock = int.Parse(textBoxInventory.Text);
             int currentMax = int.Parse(textBoxMax.Text);
             int currentMin = int.Parse(textBoxMin.Text);
+            bool outsourced = radioButtonOutsourced.Checked;
+            bool inHouse = radioButtonInHouse.Checked;
+            string local = textBoxLocation.Text;
 
-            Parts currentPart = new Parts();
-            currentPart.PartID = Inventory.AllParts.Count + 1;
-            currentPart.Name = currentName;
-            currentPart.Price = currentPrice;
-            currentPart.InStock = currentInSock;
-            currentPart.Max = currentMax;
-            currentPart.Min = currentMin;            
-            
-
-            try
+            if (outsourced)
             {
-                //Inventory.addPart(currentPart.PartID);
-                Inventory.AllParts.Add(currentPart);
-                this.Close();
-            }
-            catch (Exception)
-            {
+                Outsourced outsourcedPart = new Outsourced();
+                outsourcedPart.PartID = Inventory.AllParts.Count +1;
+                outsourcedPart.Name = currentName;
+                outsourcedPart.Price = currentPrice;
+                outsourcedPart.InStock = currentInSock;
+                outsourcedPart.Max = currentMax;
+                outsourcedPart.Min = currentMin;
+                outsourcedPart.CompanyName = local;
 
-                Console.WriteLine("Error with adding a part");
+                try
+                {
+                    Console.WriteLine(  outsourcedPart);
+                    // add the part
+                    Inventory.addPart(outsourcedPart);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Error with adding inhouse part");
+                }
+
+
             }
+            else if (inHouse)
+            {
+                Inhouse inhousePart = new Inhouse();
+                inhousePart.PartID = Inventory.AllParts.Count + 1;
+                inhousePart.Name = currentName;
+                inhousePart.Price = currentPrice;
+                inhousePart.InStock = currentInSock;
+                inhousePart.Max = currentMax;
+                inhousePart.Min = currentMin;
+                inhousePart.MachineID = int.Parse(local);
+
+                try
+                {
+                    Console.WriteLine(  inhousePart);
+                    // add the part
+                    Inventory.addPart(inhousePart);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Error with adding inhouse part");
+                }
+
+
+
+            } else { Console.WriteLine("error, no locaton selected (radio button)"); }
+            
+
             
             
+            
+
+        }
+
+        private void FormAddParts_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WyattBussellC968Software1C_
 {
-    internal class Outsourced
+    internal class Outsourced : Parts
     {
 
         public string CompanyName;

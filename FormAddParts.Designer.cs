@@ -253,6 +253,7 @@
             this.Controls.Add(this.radioButtonInHouse);
             this.Controls.Add(this.label1);
             this.Name = "FormAddParts";
+            this.Load += new System.EventHandler(this.FormAddParts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
