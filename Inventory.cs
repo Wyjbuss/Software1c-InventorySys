@@ -49,7 +49,7 @@ namespace WyattBussellC968Software1C_
 
         }
 
-        public bool deletePart(Parts thisPart)
+        public static bool deletePart(Parts thisPart)
         {
             try
             {

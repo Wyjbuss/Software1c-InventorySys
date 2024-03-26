@@ -35,7 +35,7 @@ namespace WyattBussellC968Software1C_
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           // this only occures once the balck text in the cells are clicked, this is not what we want
         }
 
        private void button1_Click(object sender, EventArgs e)
@@ -55,7 +55,11 @@ namespace WyattBussellC968Software1C_
 
         private void dataGridViewParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // changes the current selected part every time this is triggered
+            int currentIndex = dataGridViewParts.CurrentRow.Index;
+            Parts currentPart = Inventory.AllParts[currentIndex];
+            selectedPart = currentPart;
+            //Console.WriteLine(currentIndex);
         }
 
         private void buttonAddParts_Click(object sender, EventArgs e)
@@ -98,12 +102,23 @@ namespace WyattBussellC968Software1C_
         }
 
         private void buttonDeleteParts_MouseClick(object sender, MouseEventArgs e)
-        {           
-
+        {
+            // this is incorrect because this isnt using the function from the inventory
+            //but it works. 
+            
             if (Inventory.AllParts.Count > 0)
             {
-                int currentIndex = dataGridViewParts.CurrentRow.Index;
-                Inventory.AllParts.RemoveAt(currentIndex);
+                //int currentIndex = dataGridViewParts.CurrentRow.Index;
+                //Inventory.AllParts.RemoveAt(currentIndex);
+
+                Inventory.deletePart(selectedPart);
+                //return selected part to null
+                selectedPart = null;
+                
+            }else if (selectedPart == null) 
+            { 
+                Console.WriteLine("selected part is equil to null. Select a part to delete.");
+                /*include a popup that tells the user to select an item*/ 
             }
             else { /* Error, cant remove item when there is no item */ }
             
@@ -117,6 +132,7 @@ namespace WyattBussellC968Software1C_
 
         private void buttonDeleteParts_Click(object sender, EventArgs e)
         {
+            
             
         }
     }
