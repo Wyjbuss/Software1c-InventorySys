@@ -78,6 +78,7 @@
             this.buttonModifyParts.TabIndex = 2;
             this.buttonModifyParts.Text = "Modify";
             this.buttonModifyParts.UseVisualStyleBackColor = true;
+            this.buttonModifyParts.Click += new System.EventHandler(this.buttonModifyParts_Click);
             this.buttonModifyParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonModifyParts_MouseClick);
             // 
             // buttonDeleteParts

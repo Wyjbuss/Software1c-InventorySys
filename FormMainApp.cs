@@ -13,7 +13,7 @@ namespace WyattBussellC968Software1C_
 {
     public partial class mainApplicationWindow : Form
     {
-        Parts selectedPart = null;
+        public Parts selectedPart = null;
         public mainApplicationWindow()
         {
             InitializeComponent();
@@ -75,8 +75,20 @@ namespace WyattBussellC968Software1C_
 
         private void buttonModifyParts_MouseClick(object sender, MouseEventArgs e)
         {
-            FormModifyParts frm = new FormModifyParts();
-            frm.Show();
+            //when this is clicked then check to see if selected part is not null
+            if (selectedPart == null)
+            {
+                Console.WriteLine("There was no part selected to modify");
+            }
+            else
+            {
+                FormModifyParts frm = new FormModifyParts();
+                
+                frm.Show();
+                //Inventory.updatePart(dataGridViewParts.CurrentRow.Index, selectedPart);
+                FormModifyParts.SetcurrentPart(selectedPart); // this dosent work
+            }
+            
         }
 
         private void buttonAddProducts_MouseClick(object sender, MouseEventArgs e)
@@ -111,7 +123,7 @@ namespace WyattBussellC968Software1C_
                 //int currentIndex = dataGridViewParts.CurrentRow.Index;
                 //Inventory.AllParts.RemoveAt(currentIndex);
 
-                Inventory.deletePart(selectedPart);
+                Inventory.deletePart(selectedPart); 
                 //return selected part to null
                 selectedPart = null;
                 
@@ -134,6 +146,11 @@ namespace WyattBussellC968Software1C_
         {
             
             
+        }
+
+        private void buttonModifyParts_Click(object sender, EventArgs e)
+        {
+            //dont use this
         }
     }
 }

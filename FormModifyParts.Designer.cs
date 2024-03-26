@@ -36,7 +36,7 @@
             this.textBoxInventory = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxLocation = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelLocationName = new System.Windows.Forms.Label();
             this.labelMax = new System.Windows.Forms.Label();
             this.labelMin = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.buttonSave.TabIndex = 37;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxMin
             // 
@@ -123,12 +124,13 @@
             this.textBoxLocation.TabIndex = 31;
             this.textBoxLocation.TextChanged += new System.EventHandler(this.textBoxLocation_TextChanged);
             // 
-            // textBox1
+            // textBoxID
             // 
-            this.textBox1.Location = new System.Drawing.Point(296, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 30;
+            this.textBoxID.Enabled = false;
+            this.textBoxID.Location = new System.Drawing.Point(296, 115);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxID.TabIndex = 30;
             // 
             // labelLocationName
             // 
@@ -239,7 +241,7 @@
             this.Controls.Add(this.textBoxInventory);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxLocation);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelLocationName);
             this.Controls.Add(this.labelMax);
             this.Controls.Add(this.labelMin);
@@ -252,6 +254,7 @@
             this.Controls.Add(this.labelModifyPart);
             this.Name = "FormModifyParts";
             this.Text = "FormModifyParts";
+            this.Load += new System.EventHandler(this.FormModifyParts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,7 +270,7 @@
         private System.Windows.Forms.TextBox textBoxInventory;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxLocation;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelLocationName;
         private System.Windows.Forms.Label labelMax;
         private System.Windows.Forms.Label labelMin;

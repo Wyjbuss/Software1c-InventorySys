@@ -69,9 +69,21 @@ namespace WyattBussellC968Software1C_
 
         public Parts lookupPart(int partId) {  return null; }
 
-        public void updatePart(int partId, Parts part) 
-        { 
 
+
+
+        public static void updatePart(int currentSelectedPartIndex, Parts partToUpdate) 
+        {
+           // get current shown part
+           Parts currentSelectedPart = AllParts[currentSelectedPartIndex];
+          
+           // chage part values
+           currentSelectedPart.Name = partToUpdate.Name;
+           currentSelectedPart.Price = partToUpdate.Price;
+           currentSelectedPart.Min = partToUpdate.Min;
+           currentSelectedPart.Max = partToUpdate.Max;
+           currentSelectedPart.InStock = partToUpdate.InStock;
+           
         }
     }
 }
