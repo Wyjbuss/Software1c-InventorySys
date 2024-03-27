@@ -14,7 +14,8 @@ namespace WyattBussellC968Software1C_
 {
     public partial class FormModifyParts : Form
     {
-        int selectedPartIndex { get; set; }
+        // Find a way to put the index here
+        public static int selectedPartindex { get; set; }
         public FormModifyParts()
         {
             InitializeComponent();
@@ -150,14 +151,23 @@ namespace WyattBussellC968Software1C_
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //Inventory.updatePart(Inventory.AllParts[selectedPartIndex]);
+            if (allTextBoxesAreCleared() && selectedPartindex != -1 )
+            {
+                //find the index of the part
+                Inventory.updatePart(selectedPartindex,Inventory.CurrentPartBindingList[0]);
+                Console.WriteLine("selectedPartIndex is: " + selectedPartindex);
+                Console.WriteLine(Inventory.CurrentPartBindingList[0].Name);
+                //this.Close();
+            }
+            else if (selectedPartindex == -1){ Console.WriteLine("selected part index is -1: "+ selectedPartindex); }
+            else { Console.WriteLine("selectedPartIndex is: "+ selectedPartindex ); }
         }
 
         private void FormModifyParts_Load(object sender, EventArgs e)
         {
 
             //load in the values of the part
-            LoadValuesOfCurrentPart(Inventory.AllParts[0]);
+            LoadValuesOfCurrentPart(Inventory.CurrentPartBindingList[0]);
             
         }
 
@@ -176,12 +186,6 @@ namespace WyattBussellC968Software1C_
 
             }else { Console.WriteLine(part +": part is null");}
             
-        }
-
-        public static void SetcurrentPart(Parts partIndex)
-        { 
-            
-        
         }
 
         private bool allTextBoxesAreCleared()

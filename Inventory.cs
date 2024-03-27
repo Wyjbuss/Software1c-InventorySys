@@ -13,9 +13,9 @@ namespace WyattBussellC968Software1C_
         public static BindingList<Products> Products;
         public static BindingList<Parts> AllParts = new BindingList<Parts>();
 
-        
-
-
+        // this will only have one item in it at all times
+        public static BindingList<Parts> CurrentPartBindingList = new BindingList<Parts>();
+       
         static Inventory()
         {
             //AllParts.Add(new Parts { PartID = 1, Name = "Rapier", Price = 300.49M, InStock = 8, Min = 1, Max = 50 });
@@ -71,18 +71,22 @@ namespace WyattBussellC968Software1C_
 
 
 
-
-        public static void updatePart(int currentSelectedPartIndex, Parts partToUpdate) 
+        /// <summary>
+        /// Replaces part values of given part with index specifyed with the part givin.
+        /// </summary>
+        /// <param name="indexOfPartToUpdate">specify part to modify, index in AllParts</param>
+        /// <param name="CurrentModifyedPart">specify part whoes data you want to use to updates the parts[index] with</param>
+        public static void updatePart(int indexOfPartToUpdate, Parts CurrentModifyedPart) 
         {
            // get current shown part
-           Parts currentSelectedPart = AllParts[currentSelectedPartIndex];
+           Parts partToUpdate = AllParts[indexOfPartToUpdate];
           
            // chage part values
-           currentSelectedPart.Name = partToUpdate.Name;
-           currentSelectedPart.Price = partToUpdate.Price;
-           currentSelectedPart.Min = partToUpdate.Min;
-           currentSelectedPart.Max = partToUpdate.Max;
-           currentSelectedPart.InStock = partToUpdate.InStock;
+           partToUpdate.Name = CurrentModifyedPart.Name;
+           partToUpdate.Price = CurrentModifyedPart.Price;
+           partToUpdate.Min = CurrentModifyedPart.Min;
+           partToUpdate.Max = CurrentModifyedPart.Max;
+           partToUpdate.InStock = CurrentModifyedPart.InStock;
            
         }
     }

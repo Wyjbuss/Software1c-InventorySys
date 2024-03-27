@@ -84,9 +84,14 @@ namespace WyattBussellC968Software1C_
             {
                 FormModifyParts frm = new FormModifyParts();
                 
-                frm.Show();
+                
                 //Inventory.updatePart(dataGridViewParts.CurrentRow.Index, selectedPart);
-                FormModifyParts.SetcurrentPart(selectedPart); // this dosent work
+                Inventory.CurrentPartBindingList.Clear();
+                Inventory.CurrentPartBindingList.Add(selectedPart);
+                FormModifyParts.selectedPartindex = dataGridViewParts.CurrentRow.Index;
+                Console.WriteLine("selectedPartIndex is: "+FormModifyParts.selectedPartindex+" from Main form app");
+
+                frm.Show();
             }
             
         }
@@ -110,7 +115,13 @@ namespace WyattBussellC968Software1C_
 
         private void dataGridViewParts_SelectionChanged(object sender, EventArgs e)
         {
+            if (Inventory.CurrentPartBindingList.Count <= 0)
+            {
+                Inventory.CurrentPartBindingList.Clear();
+                Inventory.CurrentPartBindingList.Add(selectedPart);
+            }
             
+
         }
 
         private void buttonDeleteParts_MouseClick(object sender, MouseEventArgs e)
