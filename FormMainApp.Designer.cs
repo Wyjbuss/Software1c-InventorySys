@@ -100,6 +100,7 @@
             this.buttonSearchParts.TabIndex = 4;
             this.buttonSearchParts.Text = "Search";
             this.buttonSearchParts.UseVisualStyleBackColor = true;
+            this.buttonSearchParts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSearchParts_MouseClick);
             // 
             // buttonExit
             // 

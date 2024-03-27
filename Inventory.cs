@@ -67,7 +67,7 @@ namespace WyattBussellC968Software1C_
             
         }
 
-        public Parts lookupPart(int partId) {  return null; }
+        public static Parts lookupPart(int partId) {  return AllParts[partId]; }
 
 
 
