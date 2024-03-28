@@ -166,7 +166,7 @@ namespace WyattBussellC968Software1C_
         private void buttonSave_MouseClick(object sender, MouseEventArgs e)
         {
 
-            //call add part from inventory class
+            //sets the textbox feilds as verables
             string currentName = textBoxName.Text;
             decimal currentPrice = decimal.Parse(textBoxPriceCost.Text);
             int currentInSock = int.Parse(textBoxInventory.Text);
@@ -238,6 +238,11 @@ namespace WyattBussellC968Software1C_
         }
 
         private void FormAddParts_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
         {
 
         }

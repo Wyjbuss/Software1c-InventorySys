@@ -74,6 +74,7 @@
             this.buttonSave.TabIndex = 37;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSave_MouseClick);
             // 
             // textBoxMin
             // 
@@ -82,6 +83,7 @@
             this.textBoxMin.Name = "textBoxMin";
             this.textBoxMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxMin.TabIndex = 36;
+            this.textBoxMin.TextChanged += new System.EventHandler(this.textBoxMin_TextChanged);
             // 
             // textBoxMax
             // 
@@ -90,6 +92,7 @@
             this.textBoxMax.Name = "textBoxMax";
             this.textBoxMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxMax.TabIndex = 35;
+            this.textBoxMax.TextChanged += new System.EventHandler(this.textBoxMax_TextChanged);
             // 
             // textBoxPriceCost
             // 
@@ -98,6 +101,7 @@
             this.textBoxPriceCost.Name = "textBoxPriceCost";
             this.textBoxPriceCost.Size = new System.Drawing.Size(100, 20);
             this.textBoxPriceCost.TabIndex = 34;
+            this.textBoxPriceCost.TextChanged += new System.EventHandler(this.textBoxPriceCost_TextChanged);
             // 
             // textBoxInventory
             // 
@@ -106,6 +110,7 @@
             this.textBoxInventory.Name = "textBoxInventory";
             this.textBoxInventory.Size = new System.Drawing.Size(100, 20);
             this.textBoxInventory.TabIndex = 33;
+            this.textBoxInventory.TextChanged += new System.EventHandler(this.textBoxInventory_TextChanged);
             // 
             // textBoxName
             // 
@@ -114,6 +119,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 32;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxID
             // 
@@ -247,6 +253,7 @@
             this.dataGridViewParts.Size = new System.Drawing.Size(410, 186);
             this.dataGridViewParts.TabIndex = 43;
             this.dataGridViewParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellContentClick);
+            this.dataGridViewParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewParts_DataBindingComplete);
             // 
             // dataGridView1
             // 

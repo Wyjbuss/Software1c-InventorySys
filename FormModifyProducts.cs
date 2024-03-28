@@ -36,5 +36,10 @@ namespace WyattBussellC968Software1C_
         {
 
         }
+
+        private void dataGridViewParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewParts.ClearSelection();
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace WyattBussellC968Software1C_
 {
     internal class Inventory
     {
-        public static BindingList<Products> Products;
+        public static BindingList<Products> Product = new BindingList<Products>();
         public static BindingList<Parts> AllParts = new BindingList<Parts>();
 
         // this will only have one item in it at all times
@@ -23,9 +23,9 @@ namespace WyattBussellC968Software1C_
             //AllParts.Add(new Parts { PartID = 3, Name = "Dagger", Price = 90.70M, InStock = 13, Min = 1, Max = 50 });
             //AllParts.Add(new Parts { PartID = 4, Name = "Zwei-Hander", Price = 900.00M, InStock = 16, Min = 1, Max = 50 });
         }
-        public void addProduct()
+        public static void addProduct(Products thisProduct)
         {
-            
+            Product.Add(thisProduct);
         }
         public bool removeProduct(int removed)
         {

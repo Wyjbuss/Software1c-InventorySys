@@ -21,7 +21,7 @@ namespace WyattBussellC968Software1C_
 
             //sets that data source, the data auto displays in the DataGridView
             dataGridViewParts.DataSource = Inventory.AllParts;
-            dataGridViewProducts.DataSource = Inventory.Products;
+            dataGridViewProducts.DataSource = Inventory.Product;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -30,8 +30,10 @@ namespace WyattBussellC968Software1C_
             dataGridViewParts.ReadOnly = true;
             dataGridViewParts.MultiSelect = false;
             dataGridViewParts.AllowUserToAddRows = false;
-            
-            
+
+            dataGridViewProducts.ReadOnly = true;
+            dataGridViewProducts.MultiSelect = false;
+            dataGridViewProducts.AllowUserToAddRows = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -196,6 +198,11 @@ namespace WyattBussellC968Software1C_
                    
                 }
             }
+        }
+
+        private void dataGridViewProducts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewParts.ClearSelection();
         }
     }
 }

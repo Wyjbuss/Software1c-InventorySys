@@ -195,5 +195,10 @@ namespace WyattBussellC968Software1C_
                 return true;
             }else { return false; }
         }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

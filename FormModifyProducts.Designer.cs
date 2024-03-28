@@ -71,6 +71,7 @@
             this.dataGridViewParts.Size = new System.Drawing.Size(410, 186);
             this.dataGridViewParts.TabIndex = 66;
             this.dataGridViewParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellContentClick);
+            this.dataGridViewParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewParts_DataBindingComplete);
             // 
             // labelPartsAndProdTable
             // 
