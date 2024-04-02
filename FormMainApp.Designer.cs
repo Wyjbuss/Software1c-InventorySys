@@ -53,6 +53,7 @@
             this.dataGridViewParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewParts.Location = new System.Drawing.Point(31, 125);
             this.dataGridViewParts.Name = "dataGridViewParts";
+            this.dataGridViewParts.ReadOnly = true;
             this.dataGridViewParts.Size = new System.Drawing.Size(508, 326);
             this.dataGridViewParts.TabIndex = 0;
             this.dataGridViewParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellClick);
@@ -165,6 +166,8 @@
             this.buttonSearchProducts.TabIndex = 13;
             this.buttonSearchProducts.Text = "Search";
             this.buttonSearchProducts.UseVisualStyleBackColor = true;
+            this.buttonSearchProducts.Click += new System.EventHandler(this.buttonSearchProducts_Click);
+            this.buttonSearchProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSearchProducts_MouseClick);
             // 
             // buttonDeleteProducts
             // 
@@ -174,6 +177,7 @@
             this.buttonDeleteProducts.TabIndex = 12;
             this.buttonDeleteProducts.Text = "Delete";
             this.buttonDeleteProducts.UseVisualStyleBackColor = true;
+            this.buttonDeleteProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDeleteProducts_MouseClick);
             // 
             // buttonModifyProducts
             // 
@@ -204,6 +208,7 @@
             this.dataGridViewProducts.TabIndex = 9;
             this.dataGridViewProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProducts_CellContentClick);
             this.dataGridViewProducts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewProducts_DataBindingComplete);
+            this.dataGridViewProducts.SelectionChanged += new System.EventHandler(this.dataGridViewProducts_SelectionChanged);
             // 
             // mainApplicationWindow
             // 

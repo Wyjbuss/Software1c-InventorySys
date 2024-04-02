@@ -27,15 +27,21 @@ namespace WyattBussellC968Software1C_
         {
             Product.Add(thisProduct);
         }
-        public bool removeProduct(int removed)
+        public static bool removeProduct(int productToRemove)
         {
-            return false;
+            if (Product.Count > 0 && productToRemove != -1) 
+            {
+                Product.RemoveAt(productToRemove);
+                return true;
+            }else
+            {
+                Console.WriteLine("Product Coundlt be removed");
+                return false;
+            }
+            
         }
 
-        public Products lookupProduct(int productId)
-        {
-            return null;
-        }
+        public static Products lookupProduct(int productId){return Product[productId];}
 
         public void updateProduct(int productId, Products product) 
         { 

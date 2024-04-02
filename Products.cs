@@ -7,28 +7,60 @@ using System.Threading.Tasks;
 
 namespace WyattBussellC968Software1C_
 {
-    internal class Products
+    public class Products
     {
         public BindingList<Parts> AssociatedParts;
-        public int ProductID;
-        public string Name;
-        public decimal Price;
-        public int InStock;
-        public int Max;
-        public int Min;
-        public void addAssociatedPart(Parts part)
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public decimal Price {  get; set; }
+        public int InStock {  get; set; }
+        public int Max {  get; set; }
+        public int Min {  get; set; }
+
+        public Products()
         {
+            AssociatedParts = new BindingList<Parts>();
+            ProductID = Inventory.Product.Count+1;
+            Name = "newProduct" + Inventory.Product.Count;
+            Price = 0;
+            InStock = 0;
+            Max = 0;
+            Min = 0;
 
         }
-
-        public bool removeAssociatedPart(int part)
+        public void addAssociatedPart(Parts part)
         {
+            if (part != null)
+            {
+                AssociatedParts.Add(part);
+            }
+            else { Console.WriteLine("error adding part to associated parts bindingList"); }
+            
+        }
+
+        public bool removeAssociatedPart(int partIndex)
+        {
+            if(partIndex != -1)
+            {
+                AssociatedParts[partIndex] = null;
+                return true;
+            }
             return false;
         }
 
-        public Parts lookupAssociatedPart(int part)
+        public Parts lookupAssociatedPart(int partIndex)
         {
-            return null;
+            if (partIndex != -1)
+            {
+                return AssociatedParts[partIndex];
+            }
+            else
+            {
+                Console.WriteLine("not part association exists in the search");
+                return null;
+            }
+            
+
         }
     }
 }
