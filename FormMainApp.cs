@@ -271,8 +271,6 @@ namespace WyattBussellC968Software1C_
 
         private void buttonDeleteProducts_MouseClick(object sender, MouseEventArgs e)
         {
-            // this is incorrect because this isnt using the function from the inventory
-            //but it works. 
 
             if (Inventory.Product.Count > 0)
             {

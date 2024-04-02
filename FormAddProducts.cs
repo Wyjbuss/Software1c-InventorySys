@@ -62,8 +62,18 @@ namespace WyattBussellC968Software1C_
             currentProduct.Max = currentMax;
             currentProduct.Min = currentMin;
 
-            // then add the product to the list in inventory
-            Inventory.addProduct(currentProduct);
+            try
+            {
+                // then add the product to the list in inventory
+                Inventory.addProduct(currentProduct);
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Product Couldn't be added, From add product script");
+            }
+            
 
         }
         private bool allTextBoxesAreCleared()
