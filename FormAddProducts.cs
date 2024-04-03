@@ -186,6 +186,8 @@ namespace WyattBussellC968Software1C_
             if (selectedPart != null)
             {
                 newProduct.addAssociatedPart(selectedPart);
+                dataGridViewParts.ClearSelection();
+                dataGridViewAssociatedParts.ClearSelection();
             }
             
         }

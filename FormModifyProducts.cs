@@ -41,5 +41,14 @@ namespace WyattBussellC968Software1C_
         {
             dataGridViewParts.ClearSelection();
         }
+
+        public void loadModifyProductData(Products productToModify)
+        {
+            textBoxName.Text = productToModify.Name;
+            textBoxInventory.Text = productToModify.InStock.ToString();
+            textBoxPriceCost.Text = productToModify.Price.ToString();
+            textBoxMax.Text = productToModify.Max.ToString();
+            textBoxMin.Text = productToModify.Min.ToString();
+        }
     }
 }

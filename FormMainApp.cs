@@ -124,8 +124,14 @@ namespace WyattBussellC968Software1C_
 
         private void buttonModifyProducts_MouseClick(object sender, MouseEventArgs e)
         {
-            FormModifyProducts frm = new FormModifyProducts();
-            frm.Show();
+            if (selectedProduct != null)
+            {
+                FormModifyProducts frm = new FormModifyProducts();
+                frm.Show();
+
+                frm.loadModifyProductData(selectedProduct);
+            }
+           
         }
 
         private void buttonExit_MouseClick(object sender, MouseEventArgs e)
