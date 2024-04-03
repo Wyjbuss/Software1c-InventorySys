@@ -243,7 +243,7 @@ namespace WyattBussellC968Software1C_
             if (searchedItem == "")
             {
                 // bind dataGridView to data source
-                dataGridViewParts.DataSource = Inventory.Product;
+                dataGridViewProducts.DataSource = Inventory.Product;
 
             }
             else
