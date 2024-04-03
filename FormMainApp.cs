@@ -295,5 +295,25 @@ namespace WyattBussellC968Software1C_
             }
             else { /* Error, cant remove item when there is no item */ }
         }
+
+        private void dataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridViewProducts.SelectedRows.Count > 0)
+                { // changes the current selected part every time this is triggered
+                    int currentIndex = dataGridViewProducts.CurrentRow.Index;
+                    Products currentProduct = Inventory.Product[currentIndex];
+                    selectedProduct = currentProduct;
+                }
+
+                //Console.WriteLine(currentIndex);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("object not set to an instance of an object");
+            }
+        }
     }
 }
