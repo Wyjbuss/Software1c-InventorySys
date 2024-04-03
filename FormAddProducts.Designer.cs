@@ -50,9 +50,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.labelPartsAndProdTable = new System.Windows.Forms.Label();
             this.dataGridViewParts = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewAssociatedParts = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssociatedParts)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -235,6 +235,7 @@
             this.buttonAdd.TabIndex = 41;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonAdd_MouseClick);
             // 
             // labelPartsAndProdTable
             // 
@@ -252,23 +253,24 @@
             this.dataGridViewParts.Name = "dataGridViewParts";
             this.dataGridViewParts.Size = new System.Drawing.Size(410, 186);
             this.dataGridViewParts.TabIndex = 43;
+            this.dataGridViewParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellClick);
             this.dataGridViewParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewParts_CellContentClick);
             this.dataGridViewParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewParts_DataBindingComplete);
             // 
-            // dataGridView1
+            // dataGridViewAssociatedParts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 379);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(423, 174);
-            this.dataGridView1.TabIndex = 44;
+            this.dataGridViewAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAssociatedParts.Location = new System.Drawing.Point(7, 379);
+            this.dataGridViewAssociatedParts.Name = "dataGridViewAssociatedParts";
+            this.dataGridViewAssociatedParts.Size = new System.Drawing.Size(423, 174);
+            this.dataGridViewAssociatedParts.TabIndex = 44;
             // 
             // FormAddProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 577);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewAssociatedParts);
             this.Controls.Add(this.dataGridViewParts);
             this.Controls.Add(this.labelPartsAndProdTable);
             this.Controls.Add(this.buttonAdd);
@@ -294,7 +296,7 @@
             this.Name = "FormAddProducts";
             this.Text = "FormAddProducts";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssociatedParts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +326,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label labelPartsAndProdTable;
         private System.Windows.Forms.DataGridView dataGridViewParts;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewAssociatedParts;
     }
 }

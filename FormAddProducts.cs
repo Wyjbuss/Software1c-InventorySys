@@ -12,21 +12,28 @@ namespace WyattBussellC968Software1C_
 {
     public partial class FormAddProducts : Form
     {
+        private Parts selectedPart;
+        Products newProduct = new Products();
 
         public FormAddProducts()
         {
             InitializeComponent();
 
             dataGridViewParts.DataSource = Inventory.AllParts;
-
+            dataGridViewAssociatedParts.DataSource = newProduct.AssociatedParts;
 
             //see a ful row selection
             dataGridViewParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewAssociatedParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             //make the grid read only
             dataGridViewParts.ReadOnly = true;
             dataGridViewParts.MultiSelect = false;
             dataGridViewParts.AllowUserToAddRows = false;
+
+            dataGridViewAssociatedParts.ReadOnly = true;
+            dataGridViewAssociatedParts.MultiSelect = false;
+            dataGridViewAssociatedParts.AllowUserToAddRows = false;
         }
 
         private void buttonCancel_MouseClick(object sender, MouseEventArgs e)
@@ -171,6 +178,36 @@ namespace WyattBussellC968Software1C_
                 buttonSave.Enabled = true;
             }
             else { buttonSave.Enabled = false; }
+        }
+
+        private void buttonAdd_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!buttonAdd.Enabled) { return; }
+            if (selectedPart != null)
+            {
+                newProduct.addAssociatedPart(selectedPart);
+            }
+            
+        }
+
+        private void dataGridViewParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridViewParts.SelectedRows.Count > 0)
+                { // changes the current selected part every time this is triggered
+                    int currentIndex = dataGridViewParts.CurrentRow.Index;
+                    Parts currentPart = Inventory.AllParts[currentIndex];
+                    selectedPart = currentPart;
+                }
+
+                //Console.WriteLine(currentIndex);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("object not set to an instance of an object");
+            }
         }
     }
 }
