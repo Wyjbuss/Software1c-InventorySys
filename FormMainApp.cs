@@ -126,10 +126,13 @@ namespace WyattBussellC968Software1C_
         {
             if (selectedProduct != null)
             {
+                int indexSelectedPart = dataGridViewProducts.CurrentRow.Index;
                 FormModifyProducts frm = new FormModifyProducts();
                 frm.Show();
 
-                frm.loadModifyProductData(selectedProduct);
+                frm.loadModifyProductData(selectedProduct, indexSelectedPart);
+                dataGridViewProducts.Refresh();
+                
             }
            
         }

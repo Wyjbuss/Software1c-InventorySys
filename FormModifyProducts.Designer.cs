@@ -128,6 +128,7 @@
             this.buttonSave.TabIndex = 60;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSave_MouseClick);
             // 
             // textBoxMin
             // 
@@ -135,6 +136,7 @@
             this.textBoxMin.Name = "textBoxMin";
             this.textBoxMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxMin.TabIndex = 59;
+            this.textBoxMin.TextChanged += new System.EventHandler(this.textBoxMin_TextChanged);
             // 
             // textBoxMax
             // 
@@ -142,6 +144,7 @@
             this.textBoxMax.Name = "textBoxMax";
             this.textBoxMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxMax.TabIndex = 58;
+            this.textBoxMax.TextChanged += new System.EventHandler(this.textBoxMax_TextChanged);
             // 
             // textBoxPriceCost
             // 
@@ -149,6 +152,7 @@
             this.textBoxPriceCost.Name = "textBoxPriceCost";
             this.textBoxPriceCost.Size = new System.Drawing.Size(100, 20);
             this.textBoxPriceCost.TabIndex = 57;
+            this.textBoxPriceCost.TextChanged += new System.EventHandler(this.textBoxPriceCost_TextChanged);
             // 
             // textBoxInventory
             // 
@@ -156,6 +160,7 @@
             this.textBoxInventory.Name = "textBoxInventory";
             this.textBoxInventory.Size = new System.Drawing.Size(100, 20);
             this.textBoxInventory.TabIndex = 56;
+            this.textBoxInventory.TextChanged += new System.EventHandler(this.textBoxInventory_TextChanged);
             // 
             // textBoxName
             // 
@@ -163,6 +168,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 55;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxSearch
             // 

@@ -173,6 +173,7 @@ namespace WyattBussellC968Software1C_
 
         private void LoadValuesOfCurrentPart(Parts part)
         {
+            // this can go in the main app once the app is created new
             if (part != null)
             {
                 textBoxName.Text = part.Name.ToString();
