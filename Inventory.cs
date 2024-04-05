@@ -43,9 +43,24 @@ namespace WyattBussellC968Software1C_
 
         public static Products lookupProduct(int productId){return Product[productId];}
 
-        public void updateProduct(int productId, Products product) 
-        { 
+        public static void updateProduct(int productId, Products product) 
+        {
+            try
+            {
+                // when save button is pressed do ACTION
+                Products currentProduct = Product[productId];
 
+                // send over modifyed product
+                currentProduct.Name = product.Name;
+                currentProduct.Price = product.Price;
+                currentProduct.InStock = product.InStock;
+                currentProduct.Min = product.Min;
+                currentProduct.Max = product.Max;         
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Save modified product didn't occure");
+            }
         }
 
         public static void addPart(Parts thisPart)
@@ -84,16 +99,26 @@ namespace WyattBussellC968Software1C_
         /// <param name="CurrentModifyedPart">specify part whoes data you want to use to updates the parts[index] with</param>
         public static void updatePart(int indexOfPartToUpdate, Parts CurrentModifyedPart) 
         {
-           // get current shown part
-           Parts partToUpdate = AllParts[indexOfPartToUpdate];
-          
-           // chage part values
-           partToUpdate.Name = CurrentModifyedPart.Name;
-           partToUpdate.Price = CurrentModifyedPart.Price;
-           partToUpdate.Min = CurrentModifyedPart.Min;
-           partToUpdate.Max = CurrentModifyedPart.Max;
-           partToUpdate.InStock = CurrentModifyedPart.InStock;
-           
+            try
+            {
+                // when save button is pressed do ACTION
+                Parts currentPart = AllParts[indexOfPartToUpdate];
+                if (currentPart != null)
+                {
+                    // send over modifyed product
+                    currentPart.Name = CurrentModifyedPart.Name;
+                    currentPart.Price = CurrentModifyedPart.Price;
+                    currentPart.InStock = CurrentModifyedPart.InStock;
+                    currentPart.Min = CurrentModifyedPart.Min;
+                    currentPart.Max = CurrentModifyedPart.Max;
+                    
+                }else { Console.WriteLine("inventory scrip says part is null"); }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Save modified product didn't occure");
+            }
+
         }
     }
 }

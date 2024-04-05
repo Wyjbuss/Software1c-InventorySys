@@ -14,6 +14,8 @@ namespace WyattBussellC968Software1C_
     public partial class mainApplicationWindow : Form
     {
         public Products selectedProduct = null;
+        //public Outsourced selectedPartOutsourced = null;
+        //public Inhouse selectedPartInhouse = null;
         public Parts selectedPart = null;
         private BindingList<Parts> LookedUpPartsList = new BindingList<Parts>();
         private BindingList<Products> lookedUpProductsList = new BindingList<Products>();
@@ -67,6 +69,16 @@ namespace WyattBussellC968Software1C_
                 if (dataGridViewParts.SelectedRows.Count > 0)
                 { // changes the current selected part every time this is triggered
                     int currentIndex = dataGridViewParts.CurrentRow.Index;
+                    //if (Inventory.AllParts[currentIndex].GetType() == typeof(Inhouse))
+                    //{
+                    //    Parts currentPartInouse = Inventory.AllParts[currentIndex];
+
+                    //}
+                    //else if (Inventory.AllParts[currentIndex].GetType() == typeof(Outsourced))
+                    //{
+                    //    Parts currentPartOutsourced = Inventory.AllParts[currentIndex];
+                    //    currentPartOutsourced.
+                    //}
                     Parts currentPart = Inventory.AllParts[currentIndex];
                     selectedPart = currentPart;
                 }
@@ -96,24 +108,49 @@ namespace WyattBussellC968Software1C_
         private void buttonModifyParts_MouseClick(object sender, MouseEventArgs e)
         {
             //when this is clicked then check to see if selected part is not null
-            if (selectedPart == null)
-            {
-                Console.WriteLine("There was no part selected to modify");
-            }
-            else
+            if (selectedPart != null)
             {
                 FormModifyParts frm = new FormModifyParts();
-                
-                
-                //Inventory.updatePart(dataGridViewParts.CurrentRow.Index, selectedPart);
-                Inventory.CurrentPartBindingList.Clear();
-                Inventory.CurrentPartBindingList.Add(selectedPart);
-                FormModifyParts.selectedPartindex = dataGridViewParts.CurrentRow.Index;
-                Console.WriteLine("selectedPartIndex is: "+FormModifyParts.selectedPartindex+" from Main form app");
-
+                int indexSelectedPart = dataGridViewParts.CurrentRow.Index;
                 frm.Show();
+
+                Console.WriteLine("Selected part's type is: "+ selectedPart.GetType());
+                // if outsourced use LoadValuesOfCurrentPartOutsourced();
+                //if (selectedPart.GetType() == typeof(Inhouse))
+                //{
+                //    frm.LoadValuesOfCurrentPartInhouse(selectedPart, indexSelectedPart);
+                //}
+                //if (selectedPart.GetType() == typeof(Outsourced))
+                //{
+
+                //}
+                frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart);
+
+                // if inhouse use LoadValuesOfCurrentPartInhouse();
+
+
+                frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart );
+                dataGridViewProducts.Refresh();
+
+
             }
+            else{Console.WriteLine("There was no part selected to modify");}
             
+        }
+        private void buttonModifyProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (selectedProduct != null)
+            {
+                int indexSelectedProduct = dataGridViewProducts.CurrentRow.Index;
+                FormModifyProducts frm = new FormModifyProducts();
+                frm.Show();
+
+                frm.loadModifyProductData(selectedProduct, indexSelectedProduct);
+                dataGridViewProducts.Refresh();
+
+            }
+            else { Console.WriteLine("There was no product selected to modify"); }
+           
         }
 
         private void buttonAddProducts_MouseClick(object sender, MouseEventArgs e)
@@ -122,20 +159,6 @@ namespace WyattBussellC968Software1C_
             frm.Show();
         }
 
-        private void buttonModifyProducts_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (selectedProduct != null)
-            {
-                int indexSelectedPart = dataGridViewProducts.CurrentRow.Index;
-                FormModifyProducts frm = new FormModifyProducts();
-                frm.Show();
-
-                frm.loadModifyProductData(selectedProduct, indexSelectedPart);
-                dataGridViewProducts.Refresh();
-                
-            }
-           
-        }
 
         private void buttonExit_MouseClick(object sender, MouseEventArgs e)
         {

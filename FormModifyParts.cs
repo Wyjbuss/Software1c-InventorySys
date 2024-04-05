@@ -108,10 +108,11 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
         {
-            if(textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber))
+            if (textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber))
             {
                 textBoxMax.BackColor = Color.White;
-            }else { textBoxMax.BackColor = Color.LightCoral; };
+            }
+            else { textBoxMax.BackColor = Color.LightCoral; };
 
             if (allTextBoxesAreCleared())
             {
@@ -146,32 +147,138 @@ namespace WyattBussellC968Software1C_
             if (allTextBoxesAreCleared())
             {
                 buttonSave.Enabled = true;
-            }else { buttonSave.Enabled = false; }
+            }
+            else { buttonSave.Enabled = false; }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (allTextBoxesAreCleared() && selectedPartindex != -1 )
+
+            try
             {
-                //find the index of the part
-                Inventory.updatePart(selectedPartindex,Inventory.CurrentPartBindingList[0]);
-                Console.WriteLine("selectedPartIndex is: " + selectedPartindex);
-                Console.WriteLine(Inventory.CurrentPartBindingList[0].Name);
-                //this.Close();
+                if (selectedPartindex == -1 || !allTextBoxesAreCleared())
+                {
+                    return;
+                }
+                else if (allTextBoxesAreCleared() && selectedPartindex != -1)
+                {
+                    //create new part
+                    if (radioButtonInHouse.Checked) 
+                    {
+                        Inhouse newInHouse = new Inhouse();
+                        newInHouse.Name = textBoxName.Text;
+                        newInHouse.Price = decimal.Parse(textBoxPriceCost.Text);
+                        newInHouse.InStock = int.Parse(textBoxInventory.Text);
+                        newInHouse.Min = int.Parse(textBoxMin.Text);
+                        newInHouse.Max = int.Parse(textBoxMax.Text);
+                        newInHouse.MachineID = int.Parse(textBoxLocation.Text);
+
+                        Inventory.updatePart(selectedPartindex, newInHouse);
+                        this.Close();
+
+                    }
+                    else if (radioButtonOutsourced.Checked)
+                    {
+                        Outsourced newOutsourced = new Outsourced();
+                        newOutsourced.Name = textBoxName.Text;
+                        newOutsourced.Price = decimal.Parse(textBoxPriceCost.Text);
+                        newOutsourced.InStock = int.Parse(textBoxInventory.Text);
+                        newOutsourced.Min = int.Parse(textBoxMin.Text);
+                        newOutsourced.Max = int.Parse(textBoxMax.Text);
+                        newOutsourced.CompanyName = textBoxLocation.Text;
+
+                        Inventory.updatePart(selectedPartindex, newOutsourced);
+                        this.Close();
+
+                    }
+
+                    //find the index of the part
+                    //Inventory.updatePart(selectedPartindex, Inventory.CurrentPartBindingList[0]);
+                    Console.WriteLine("selectedPartIndex is: " + selectedPartindex);
+                    if (Inventory.CurrentPartBindingList.Count < 0)
+                    {
+                        Console.WriteLine(Inventory.CurrentPartBindingList[0].Name);
+                    }
+
+                    //this.Close();
+                }
+                else if (selectedPartindex == -1) { Console.WriteLine("selected part index is -1: " + selectedPartindex); }
+                else { Console.WriteLine("selectedPartIndex is: " + selectedPartindex); }
+                
+                // Parts updatePart = new Parts();
             }
-            else if (selectedPartindex == -1){ Console.WriteLine("selected part index is -1: "+ selectedPartindex); }
-            else { Console.WriteLine("selectedPartIndex is: "+ selectedPartindex ); }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void FormModifyParts_Load(object sender, EventArgs e)
         {
 
             //load in the values of the part
-            LoadValuesOfCurrentPart(Inventory.CurrentPartBindingList[0]);
-            
+            //LoadValuesOfCurrentPart(Inventory.CurrentPartBindingList[0]);
+
         }
 
-        private void LoadValuesOfCurrentPart(Parts part)
+        public void LoadValuesOfCurrentPartInhouse(Inhouse inHousePart, int index)
+        {
+            // this can go in the main app once the app is created new
+            if (inHousePart != null)
+            {
+                textBoxName.Text = inHousePart.Name;
+                textBoxPriceCost.Text = inHousePart.Price.ToString();
+                textBoxMin.Text = inHousePart.Min.ToString();
+                textBoxMax.Text = inHousePart.Max.ToString();
+                textBoxInventory.Text = inHousePart.InStock.ToString();
+                textBoxID.Text = inHousePart.PartID.ToString();
+                textBoxLocation.Text = inHousePart.MachineID.ToString();
+                radioButtonInHouse.Checked = true;
+
+
+            }
+            else { Console.WriteLine(inHousePart + ": part is null"); }
+
+        }
+        public void LoadValuesOfCurrentPartOutsourced(Outsourced outsourcedPart, int index)
+        {
+            // this can go in the main app once the app is created new
+            if (outsourcedPart != null)
+            {
+                textBoxName.Text = outsourcedPart.Name;
+                textBoxPriceCost.Text = outsourcedPart.Price.ToString();
+                textBoxMin.Text = outsourcedPart.Min.ToString();
+                textBoxMax.Text = outsourcedPart.Max.ToString();
+                textBoxInventory.Text = outsourcedPart.InStock.ToString();
+                textBoxID.Text = outsourcedPart.PartID.ToString();
+                textBoxLocation.Text = outsourcedPart.CompanyName;
+                radioButtonOutsourced.Checked = true;
+
+
+            }
+            else { Console.WriteLine(outsourcedPart + ": part is null"); }
+
+        }
+
+
+
+        private bool allTextBoxesAreCleared()
+        {
+            if (textBoxInventory.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxName.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxLocation.BackColor == Color.White && (radioButtonInHouse.Checked || radioButtonOutsourced.Checked))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LoadValuesOfCurrentPart(Parts part, int index)
         {
             // this can go in the main app once the app is created new
             if (part != null)
@@ -182,24 +289,11 @@ namespace WyattBussellC968Software1C_
                 textBoxMax.Text = part.Max.ToString();
                 textBoxInventory.Text = part.InStock.ToString();
                 textBoxID.Text = part.PartID.ToString();
-                //textBoxLocation.Text = part.;
+                //radioButtonInHouse.Checked = true;
 
 
-            }else { Console.WriteLine(part +": part is null");}
-            
-        }
-
-        private bool allTextBoxesAreCleared()
-        {
-            if (textBoxInventory.BackColor == Color.White && textBoxMin.BackColor == Color.White && textBoxMax.BackColor == Color.White && textBoxName.BackColor == Color.White && textBoxPriceCost.BackColor == Color.White && textBoxLocation.BackColor == Color.White && (radioButtonInHouse.Checked || radioButtonOutsourced.Checked))
-            {
-                return true;
-            }else { return false; }
-        }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-
+            }
+            else { Console.WriteLine(part + ": part is null"); }
         }
     }
 }

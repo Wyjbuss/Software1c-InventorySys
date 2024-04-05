@@ -215,7 +215,7 @@ namespace WyattBussellC968Software1C_
 
                 try
                 {
-                    Console.WriteLine(  inhousePart);
+                    Console.WriteLine(inhousePart);
                     // add the part
                     Inventory.addPart(inhousePart);
                     this.Close();

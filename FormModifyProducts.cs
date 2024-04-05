@@ -59,14 +59,16 @@ namespace WyattBussellC968Software1C_
             try
             {
                 // when save button is pressed do ACTION
-                Products currentProduct = Inventory.Product[selectedProductIndex];
+                //Products currentProduct = Inventory.Product[selectedProductIndex];
+                Products updatedProduct = new Products();
 
+                updatedProduct.Name = textBoxName.Text;
+                updatedProduct.Price = decimal.Parse(textBoxPriceCost.Text);
+                updatedProduct.InStock = int.Parse(textBoxInventory.Text);
+                updatedProduct.Min = int.Parse(textBoxMin.Text);
+                updatedProduct.Max = int.Parse(textBoxMax.Text);
 
-                currentProduct.Name = textBoxName.Text;
-                currentProduct.Price = decimal.Parse(textBoxPriceCost.Text);
-                currentProduct.InStock = int.Parse(textBoxInventory.Text);
-                currentProduct.Min = int.Parse(textBoxMin.Text);
-                currentProduct.Max = int.Parse(textBoxMax.Text);
+                Inventory.updateProduct(selectedProductIndex, updatedProduct);
                 this.Close();
             }
             catch (Exception)

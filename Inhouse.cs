@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WyattBussellC968Software1C_
 {
-    internal class Inhouse : Parts
+    public class Inhouse : Parts
     {
         public int MachineID;
     }
