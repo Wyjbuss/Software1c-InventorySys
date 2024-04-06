@@ -59,20 +59,20 @@ namespace WyattBussellC968Software1C_
             int currentInSock = int.Parse(textBoxInventory.Text);
             int currentMax = int.Parse(textBoxMax.Text);
             int currentMin = int.Parse(textBoxMin.Text);
-           
+
 
             // if this is clicked then create the new product
-            Products currentProduct  = new Products();
-            currentProduct.Name = currentName;
-            currentProduct.Price = currentPrice;
-            currentProduct.InStock = currentInSock;
-            currentProduct.Max = currentMax;
-            currentProduct.Min = currentMin;
+            //Products currentProduct  = new Products();
+            newProduct.Name = currentName;
+            newProduct.Price = currentPrice;
+            newProduct.InStock = currentInSock;
+            newProduct.Max = currentMax;
+            newProduct.Min = currentMin;
 
             try
             {
                 // then add the product to the list in inventory
-                Inventory.addProduct(currentProduct);
+                Inventory.addProduct(newProduct);
                 this.Close();
             }
             catch (Exception)

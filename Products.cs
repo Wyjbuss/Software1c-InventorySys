@@ -42,7 +42,8 @@ namespace WyattBussellC968Software1C_
         {
             if(partIndex != -1)
             {
-                AssociatedParts[partIndex] = null;
+                AssociatedParts.Remove(AssociatedParts[partIndex]);
+                //AssociatedParts[partIndex];
                 return true;
             }
             return false;

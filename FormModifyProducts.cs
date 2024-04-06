@@ -13,6 +13,10 @@ namespace WyattBussellC968Software1C_
     public partial class FormModifyProducts : Form
     {
         public int selectedProductIndex;
+        public Products newProduct = new Products();
+        public Parts selectedPart;
+
+        public int selectedAssioatedPartIndex;
         public FormModifyProducts()
         {
             InitializeComponent();
@@ -26,6 +30,11 @@ namespace WyattBussellC968Software1C_
             dataGridViewParts.ReadOnly = true;
             dataGridViewParts.MultiSelect = false;
             dataGridViewParts.AllowUserToAddRows = false;
+
+            dataGridViewAssociatedParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewAssociatedParts.ReadOnly = true;
+            dataGridViewAssociatedParts.MultiSelect = false;
+            dataGridViewAssociatedParts.AllowUserToAddRows = false;
         }
 
         private void buttonCancel_MouseClick(object sender, MouseEventArgs e)
@@ -45,11 +54,15 @@ namespace WyattBussellC968Software1C_
 
         public void loadModifyProductData(Products productToModify, int index)
         {
+            
             textBoxName.Text = productToModify.Name;
             textBoxInventory.Text = productToModify.InStock.ToString();
             textBoxPriceCost.Text = productToModify.Price.ToString();
             textBoxMax.Text = productToModify.Max.ToString();
             textBoxMin.Text = productToModify.Min.ToString();
+
+            dataGridViewAssociatedParts.DataSource = productToModify.AssociatedParts;
+            dataGridViewAssociatedParts.Refresh();
 
             selectedProductIndex = index;
         }
@@ -60,15 +73,15 @@ namespace WyattBussellC968Software1C_
             {
                 // when save button is pressed do ACTION
                 //Products currentProduct = Inventory.Product[selectedProductIndex];
-                Products updatedProduct = new Products();
+                //Products updatedProduct = new Products();
 
-                updatedProduct.Name = textBoxName.Text;
-                updatedProduct.Price = decimal.Parse(textBoxPriceCost.Text);
-                updatedProduct.InStock = int.Parse(textBoxInventory.Text);
-                updatedProduct.Min = int.Parse(textBoxMin.Text);
-                updatedProduct.Max = int.Parse(textBoxMax.Text);
+                newProduct.Name = textBoxName.Text;
+                newProduct.Price = decimal.Parse(textBoxPriceCost.Text);
+                newProduct.InStock = int.Parse(textBoxInventory.Text);
+                newProduct.Min = int.Parse(textBoxMin.Text);
+                newProduct.Max = int.Parse(textBoxMax.Text);
 
-                Inventory.updateProduct(selectedProductIndex, updatedProduct);
+                Inventory.updateProduct(selectedProductIndex, newProduct);
                 this.Close();
             }
             catch (Exception)
@@ -167,6 +180,84 @@ namespace WyattBussellC968Software1C_
                 return true;
             }
             else { return false; }
+        }
+
+        private void buttonAdd_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!buttonAdd.Enabled) { return; }
+            else 
+            {
+                newProduct.addAssociatedPart(selectedPart);
+
+                dataGridViewAssociatedParts.DataSource = newProduct.AssociatedParts;
+
+                dataGridViewParts.ClearSelection();
+                dataGridViewAssociatedParts.ClearSelection();
+            }
+            // when add is press add the part to the associated parts list of the product
+        }
+
+        private void dataGridViewParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridViewParts.SelectedRows.Count > 0)
+                { // changes the current selected part every time this is triggered
+                    int currentIndex = dataGridViewParts.CurrentRow.Index;
+                    Parts currentPart = Inventory.AllParts[currentIndex];
+                    selectedPart = currentPart;
+                }
+
+                //Console.WriteLine(currentIndex);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("object not set to an instance of an object");
+            }
+        }
+
+        private void FormModifyProducts_Load(object sender, EventArgs e)
+        {
+            //newProduct.Name = textBoxName.Text;
+            //newProduct.Price = decimal.Parse(textBoxPriceCost.Text);
+            //newProduct.InStock = int.Parse(textBoxInventory.Text);
+            //newProduct.Min = int.Parse(textBoxMin.Text);
+            //newProduct.Max = int.Parse(textBoxMax.Text);
+
+        }
+
+        private void buttonDelete_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (selectedAssioatedPartIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                newProduct.removeAssociatedPart(selectedAssioatedPartIndex);
+                dataGridViewAssociatedParts.Refresh();
+            }
+        }
+
+        private void dataGridViewAssociatedParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridViewParts.SelectedRows.Count > 0)
+                { // changes the current selected part every time this is triggered
+                    selectedAssioatedPartIndex = dataGridViewParts.CurrentRow.Index;
+                    //Parts currentPart = Inventory.AllParts[currentIndex];
+                    //selectedAssioatedPartIndex = currentPart;
+                }
+
+                //Console.WriteLine(currentIndex);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("object not set to an instance of an object");
+            }
         }
     }
 }

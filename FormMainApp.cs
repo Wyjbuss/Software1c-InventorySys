@@ -337,6 +337,12 @@ namespace WyattBussellC968Software1C_
                     int currentIndex = dataGridViewProducts.CurrentRow.Index;
                     Products currentProduct = Inventory.Product[currentIndex];
                     selectedProduct = currentProduct;
+                    selectedProduct.AssociatedParts = currentProduct.AssociatedParts;
+                    // might have to loop through all of the parts and add them to the new list
+                    //foreach (Parts part in currentProduct.AssociatedParts)
+                    //{
+                    //    selectedProduct.addAssociatedPart(part);
+                    //}
                 }
 
                 //Console.WriteLine(currentIndex);
