@@ -211,5 +211,20 @@ namespace WyattBussellC968Software1C_
                 Console.WriteLine("object not set to an instance of an object");
             }
         }
+
+       private void buttonDelete_MouseClick(object sender, MouseEventArgs e)
+            {
+                int currentIndex = dataGridViewParts.CurrentRow.Index;
+                if (currentIndex == -1)
+                {
+                    return;
+                }
+                else
+                {
+                    newProduct.removeAssociatedPart(currentIndex);
+                    dataGridViewAssociatedParts.Refresh();
+                }
+            }
+        
     }
 }

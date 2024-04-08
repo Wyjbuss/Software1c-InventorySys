@@ -217,6 +217,7 @@
             this.buttonDelete.TabIndex = 39;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDelete_MouseClick);
             // 
             // buttonSearch
             // 

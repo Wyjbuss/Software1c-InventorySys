@@ -42,6 +42,7 @@ namespace WyattBussellC968Software1C_
         {
             if(partIndex != -1)
             {
+                Console.WriteLine("part index in products script {0}", partIndex);
                 AssociatedParts.Remove(AssociatedParts[partIndex]);
                 //AssociatedParts[partIndex];
                 return true;

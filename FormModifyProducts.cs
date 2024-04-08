@@ -63,7 +63,7 @@ namespace WyattBussellC968Software1C_
 
             dataGridViewAssociatedParts.DataSource = productToModify.AssociatedParts;
             dataGridViewAssociatedParts.Refresh();
-
+            newProduct = productToModify;
             selectedProductIndex = index;
         }
 
@@ -229,13 +229,14 @@ namespace WyattBussellC968Software1C_
 
         private void buttonDelete_MouseClick(object sender, MouseEventArgs e)
         {
-            if (selectedAssioatedPartIndex == -1)
+            int currentIndex = dataGridViewParts.CurrentRow.Index;
+            if (currentIndex == -1)
             {
                 return;
             }
             else
             {
-                newProduct.removeAssociatedPart(selectedAssioatedPartIndex);
+                newProduct.removeAssociatedPart(currentIndex);
                 dataGridViewAssociatedParts.Refresh();
             }
         }
