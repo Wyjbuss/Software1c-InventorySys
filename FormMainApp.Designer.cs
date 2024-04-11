@@ -51,7 +51,7 @@
             // dataGridViewParts
             // 
             this.dataGridViewParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewParts.Location = new System.Drawing.Point(31, 125);
+            this.dataGridViewParts.Location = new System.Drawing.Point(31, 122);
             this.dataGridViewParts.Name = "dataGridViewParts";
             this.dataGridViewParts.ReadOnly = true;
             this.dataGridViewParts.Size = new System.Drawing.Size(508, 326);

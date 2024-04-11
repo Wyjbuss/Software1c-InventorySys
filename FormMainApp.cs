@@ -39,6 +39,8 @@ namespace WyattBussellC968Software1C_
             dataGridViewProducts.ReadOnly = true;
             dataGridViewProducts.MultiSelect = false;
             dataGridViewProducts.AllowUserToAddRows = false;
+
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,7 +132,10 @@ namespace WyattBussellC968Software1C_
 
 
                 frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart );
-                dataGridViewProducts.Refresh();
+                
+               
+                    dataGridViewProducts.Refresh();
+               
 
 
             }

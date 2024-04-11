@@ -172,7 +172,7 @@ namespace WyattBussellC968Software1C_
                         newInHouse.Min = int.Parse(textBoxMin.Text);
                         newInHouse.Max = int.Parse(textBoxMax.Text);
                         newInHouse.MachineID = int.Parse(textBoxLocation.Text);
-
+                        
                         Inventory.updatePart(selectedPartindex, newInHouse);
                         this.Close();
 
