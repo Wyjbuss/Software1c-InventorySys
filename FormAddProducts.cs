@@ -15,6 +15,8 @@ namespace WyattBussellC968Software1C_
         private Parts selectedPart;
         Products newProduct = new Products();
 
+        private BindingList<Parts> LookedUpPartsList = new BindingList<Parts>();
+
         public FormAddProducts()
         {
             InitializeComponent();
@@ -186,6 +188,7 @@ namespace WyattBussellC968Software1C_
             if (selectedPart != null)
             {
                 newProduct.addAssociatedPart(selectedPart);
+                dataGridViewAssociatedParts.DataSource = newProduct.AssociatedParts;
                 dataGridViewParts.ClearSelection();
                 dataGridViewAssociatedParts.ClearSelection();
             }
@@ -213,18 +216,52 @@ namespace WyattBussellC968Software1C_
         }
 
        private void buttonDelete_MouseClick(object sender, MouseEventArgs e)
-            {
+       {
                 int currentIndex = dataGridViewParts.CurrentRow.Index;
-                if (currentIndex == -1)
-                {
-                    return;
-                }
-                else
-                {
-                    newProduct.removeAssociatedPart(currentIndex);
-                    dataGridViewAssociatedParts.Refresh();
+               if (currentIndex == -1)
+                   {
+                       return;
+                   }
+               else
+                   {
+                       newProduct.removeAssociatedPart(currentIndex);
+                       dataGridViewAssociatedParts.Refresh();
+                   }
+
+
+       }
+
+        private void buttonSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            LookedUpPartsList.Clear();
+            string searchedItem = textBoxSearchParts.Text;
+            if (searchedItem == "")
+            {
+                // bind dataGridView to data source
+                dataGridViewParts.DataSource = Inventory.AllParts;
+
+            }
+            else
+            {
+
+                //loop through the items in the gridView
+                for (int i = 0; i < Inventory.AllParts.Count; i++)
+                {//this is basically a foreach loop
+                    Parts item = Inventory.AllParts[i];
+                    //find items in the rows's cells that equate to the searched item
+                    if (item.Name == searchedItem || item.PartID.ToString() == searchedItem)
+                    {
+                        // serverything else will be a visable = false
+                        // this wont work with a bound dataGridView
+                        //dataGridViewParts.Rows[i].Visible = true;
+                        LookedUpPartsList.Add(item);
+                        dataGridViewParts.DataSource = LookedUpPartsList;
+                    }
+                    else { /* do nothing if it dosent match anything*/ }
+
+
                 }
             }
-        
+        }
     }
 }

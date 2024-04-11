@@ -41,7 +41,7 @@
             this.textBoxPriceCost = new System.Windows.Forms.TextBox();
             this.textBoxInventory = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.textBoxSearchParts = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelPartsTable = new System.Windows.Forms.Label();
             this.labelMax = new System.Windows.Forms.Label();
@@ -102,6 +102,7 @@
             this.buttonSearch.TabIndex = 63;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonDelete
             // 
@@ -174,12 +175,12 @@
             this.textBoxName.TabIndex = 55;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // textBoxSearch
+            // textBoxSearchParts
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(661, 26);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSearch.TabIndex = 54;
+            this.textBoxSearchParts.Location = new System.Drawing.Point(661, 26);
+            this.textBoxSearchParts.Name = "textBoxSearchParts";
+            this.textBoxSearchParts.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSearchParts.TabIndex = 54;
             // 
             // textBoxID
             // 
@@ -280,7 +281,7 @@
             this.Controls.Add(this.textBoxPriceCost);
             this.Controls.Add(this.textBoxInventory);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.textBoxSearchParts);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelPartsTable);
             this.Controls.Add(this.labelMax);
@@ -315,7 +316,7 @@
         private System.Windows.Forms.TextBox textBoxPriceCost;
         private System.Windows.Forms.TextBox textBoxInventory;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.TextBox textBoxSearchParts;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelPartsTable;
         private System.Windows.Forms.Label labelMax;

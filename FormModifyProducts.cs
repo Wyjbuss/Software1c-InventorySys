@@ -15,6 +15,7 @@ namespace WyattBussellC968Software1C_
         public int selectedProductIndex;
         public Products newProduct = new Products();
         public Parts selectedPart;
+        private BindingList<Parts> LookedUpPartsList = new BindingList<Parts>();
 
         public int selectedAssioatedPartIndex;
         public FormModifyProducts()
@@ -259,6 +260,40 @@ namespace WyattBussellC968Software1C_
 
                 Console.WriteLine("object not set to an instance of an object");
             }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            LookedUpPartsList.Clear();
+            string searchedItem = textBoxSearchParts.Text;
+            if (searchedItem == "")
+            {
+                // bind dataGridView to data source
+                dataGridViewParts.DataSource = Inventory.AllParts;
+
+            }
+            else
+            {
+
+                //loop through the items in the gridView
+                for (int i = 0; i < Inventory.AllParts.Count; i++)
+                {//this is basically a foreach loop
+                    Parts item = Inventory.AllParts[i];
+                    //find items in the rows's cells that equate to the searched item
+                    if (item.Name == searchedItem || item.PartID.ToString() == searchedItem)
+                    {
+                        // serverything else will be a visable = false
+                        // this wont work with a bound dataGridView
+                        //dataGridViewParts.Rows[i].Visible = true;
+                        LookedUpPartsList.Add(item);
+                        dataGridViewParts.DataSource = LookedUpPartsList;
+                    }
+                    else { /* do nothing if it dosent match anything*/ }
+
+
+                }
+            }
+
         }
     }
 }
