@@ -291,6 +291,21 @@ namespace WyattBussellC968Software1C_
                 textBoxMax.Text = part.Max.ToString();
                 textBoxInventory.Text = part.InStock.ToString();
                 textBoxID.Text = part.PartID.ToString();
+
+                if (part.GetType().Equals(typeof(Outsourced)))
+                {
+                    Console.WriteLine("this is type of outsourced");
+                    radioButtonInHouse.Checked = false;
+                    radioButtonOutsourced.Checked = true;
+                    //textBoxLocation.Text = part.
+                }
+                if (part.GetType().Equals(typeof(Inhouse)))
+                {
+                    Console.WriteLine("this is type of outsourced");
+                    radioButtonInHouse.Checked = true;
+                    radioButtonOutsourced.Checked = false;
+                    //textBoxLocation.Text = part.
+                }
                 //radioButtonInHouse.Checked = true;
 
 

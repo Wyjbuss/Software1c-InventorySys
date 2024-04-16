@@ -133,7 +133,7 @@ namespace WyattBussellC968Software1C_
                 // if inhouse use LoadValuesOfCurrentPartInhouse();
 
 
-                frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart );
+                //frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart );
                 
                
                     dataGridViewProducts.Refresh();
