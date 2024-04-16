@@ -116,6 +116,8 @@ namespace WyattBussellC968Software1C_
                 int indexSelectedPart = dataGridViewParts.CurrentRow.Index;
                 frm.Show();
 
+                frm.OnFormExit += OnApplicationExit;
+
                 Console.WriteLine("Selected part's type is: "+ selectedPart.GetType());
                 // if outsourced use LoadValuesOfCurrentPartOutsourced();
                 //if (selectedPart.GetType() == typeof(Inhouse))
@@ -142,6 +144,14 @@ namespace WyattBussellC968Software1C_
             else{Console.WriteLine("There was no part selected to modify");}
             
         }
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+            //this will execute once it recived the invok trigger from the form exiting
+            dataGridViewParts.Refresh();
+            //Console.WriteLine("form exit trigger");
+
+        }
+       
         private void buttonModifyProducts_MouseClick(object sender, MouseEventArgs e)
         {
             if (selectedProduct != null)

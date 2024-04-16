@@ -255,6 +255,7 @@
             this.Controls.Add(this.labelModifyPart);
             this.Name = "FormModifyParts";
             this.Text = "FormModifyParts";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormModifyParts_FormClosing);
             this.Load += new System.EventHandler(this.FormModifyParts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,6 +16,8 @@ namespace WyattBussellC968Software1C_
     {
         // Find a way to put the index here
         public static int selectedPartindex { get; set; }
+
+        public event EventHandler OnFormExit;
         public FormModifyParts()
         {
             InitializeComponent();
@@ -294,6 +296,11 @@ namespace WyattBussellC968Software1C_
 
             }
             else { Console.WriteLine(part + ": part is null"); }
+        }
+
+        private void FormModifyParts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OnFormExit.Invoke(this, e);
         }
     }
 }
