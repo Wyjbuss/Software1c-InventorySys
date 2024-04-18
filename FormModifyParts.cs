@@ -238,7 +238,7 @@ namespace WyattBussellC968Software1C_
                 textBoxID.Text = inHousePart.PartID.ToString();
                 textBoxLocation.Text = inHousePart.MachineID.ToString();
                 radioButtonInHouse.Checked = true;
-
+                Console.WriteLine("in House name is: " + inHousePart.MachineID);
 
             }
             else { Console.WriteLine(inHousePart + ": part is null"); }
@@ -257,7 +257,7 @@ namespace WyattBussellC968Software1C_
                 textBoxID.Text = outsourcedPart.PartID.ToString();
                 textBoxLocation.Text = outsourcedPart.CompanyName;
                 radioButtonOutsourced.Checked = true;
-
+                Console.WriteLine("Company name is: "+outsourcedPart.CompanyName);
 
             }
             else { Console.WriteLine(outsourcedPart + ": part is null"); }
@@ -297,6 +297,7 @@ namespace WyattBussellC968Software1C_
                     Console.WriteLine("this is type of outsourced");
                     radioButtonInHouse.Checked = false;
                     radioButtonOutsourced.Checked = true;
+                    //string companyName = (Outsourced)part.;
                     //textBoxLocation.Text = part.
                 }
                 if (part.GetType().Equals(typeof(Inhouse)))
@@ -315,6 +316,8 @@ namespace WyattBussellC968Software1C_
 
         private void FormModifyParts_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // when the form exits it will trigger this
+            //then this will call a refresh of the dataGridViewPArts on the main app
             OnFormExit.Invoke(this, e);
         }
     }

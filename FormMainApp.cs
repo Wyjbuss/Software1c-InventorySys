@@ -120,15 +120,15 @@ namespace WyattBussellC968Software1C_
 
                 Console.WriteLine("Selected part's type is: "+ selectedPart.GetType());
                 // if outsourced use LoadValuesOfCurrentPartOutsourced();
-                //if (selectedPart.GetType() == typeof(Inhouse))
-                //{
-                //    frm.LoadValuesOfCurrentPartInhouse(selectedPart, indexSelectedPart);
-                //}
-                //if (selectedPart.GetType() == typeof(Outsourced))
-                //{
-
-                //}
-                frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart);
+                if (selectedPart.GetType() == typeof(Inhouse))
+                {
+                    frm.LoadValuesOfCurrentPartInhouse((Inhouse)selectedPart, indexSelectedPart);
+                }
+                if (selectedPart.GetType().Equals(typeof(Outsourced)))
+                    {
+                    frm.LoadValuesOfCurrentPartOutsourced((Outsourced)selectedPart, indexSelectedPart);
+                    }
+                //frm.LoadValuesOfCurrentPart(selectedPart, indexSelectedPart);
 
                 // if inhouse use LoadValuesOfCurrentPartInhouse();
 

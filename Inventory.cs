@@ -67,7 +67,7 @@ namespace WyattBussellC968Software1C_
         {
 
             AllParts.Add(thisPart);
-            
+            //Console.WriteLine( thisPart);
 
         }
 

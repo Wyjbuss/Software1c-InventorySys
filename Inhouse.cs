@@ -8,6 +8,13 @@ namespace WyattBussellC968Software1C_
 {
     public class Inhouse : Parts
     {
-        public int MachineID;
+        public int MachineID {  get; set; }
+
+        public Inhouse()
+        {
+            MachineID = -1;
+        }
     }
+
+   
 }

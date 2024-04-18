@@ -15,6 +15,7 @@ namespace WyattBussellC968Software1C_
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
+
         public Parts()
         {
             PartID = Inventory.AllParts.Count + 1;
