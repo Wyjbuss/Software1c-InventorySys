@@ -175,7 +175,7 @@ namespace WyattBussellC968Software1C_
                         newInHouse.Max = int.Parse(textBoxMax.Text);
                         newInHouse.MachineID = int.Parse(textBoxLocation.Text);
                         
-                        Inventory.updatePart(selectedPartindex, newInHouse);
+                        Inventory.updatePart(selectedPartindex, (Inhouse)newInHouse);
                         this.Close();
 
                     }
@@ -189,7 +189,7 @@ namespace WyattBussellC968Software1C_
                         newOutsourced.Max = int.Parse(textBoxMax.Text);
                         newOutsourced.CompanyName = textBoxLocation.Text;
 
-                        Inventory.updatePart(selectedPartindex, newOutsourced);
+                        Inventory.updatePart(selectedPartindex, (Outsourced)newOutsourced);
                         this.Close();
 
                     }
@@ -205,7 +205,7 @@ namespace WyattBussellC968Software1C_
                     //this.Close();
                 }
                 else if (selectedPartindex == -1) { Console.WriteLine("selected part index is -1: " + selectedPartindex); }
-                else { Console.WriteLine("selectedPartIndex is: " + selectedPartindex); }
+                else { Console.WriteLine("Failed to save, from FormModifyParts, selectedPartIndex is: " + selectedPartindex); }
                 
                 // Parts updatePart = new Parts();
             }

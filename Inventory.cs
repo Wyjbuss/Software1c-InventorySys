@@ -103,17 +103,42 @@ namespace WyattBussellC968Software1C_
             try
             {
                 // when save button is pressed do ACTION
-                Parts currentPart = AllParts[indexOfPartToUpdate];
+               Parts currentPart = AllParts[indexOfPartToUpdate];
                 if (currentPart != null)
                 {
-                    // send over modifyed product
-                    currentPart.Name = CurrentModifyedPart.Name;
-                    currentPart.Price = CurrentModifyedPart.Price;
-                    currentPart.InStock = CurrentModifyedPart.InStock;
-                    currentPart.Min = CurrentModifyedPart.Min;
-                    currentPart.Max = CurrentModifyedPart.Max;
                     
-                }else { Console.WriteLine("inventory scrip says part is null"); }
+                    if (CurrentModifyedPart.GetType().Equals(typeof(Outsourced)))
+                    {
+                        Outsourced currentOutsourcedPart = new Outsourced();
+                        currentOutsourcedPart.Name = CurrentModifyedPart.Name;
+                        currentOutsourcedPart.PartID = CurrentModifyedPart.PartID;
+                        currentOutsourcedPart.Price = CurrentModifyedPart.Price;
+                        currentOutsourcedPart.InStock = CurrentModifyedPart.InStock;
+                        currentOutsourcedPart.Min = CurrentModifyedPart.Min;
+                        currentOutsourcedPart.Max = CurrentModifyedPart.Max;
+                        Outsourced currentModifyedOutsourcedPart = CurrentModifyedPart as Outsourced;
+                        currentOutsourcedPart.CompanyName = currentModifyedOutsourcedPart.CompanyName;
+                        deletePart(currentPart);
+                        addPart(currentOutsourcedPart);
+
+                    }
+                    else if (CurrentModifyedPart.GetType().Equals(typeof(Inhouse)))
+                    {
+                        Inhouse currentInhousePart = new Inhouse();
+                        currentInhousePart.Name = CurrentModifyedPart.Name;
+                        currentInhousePart.PartID = CurrentModifyedPart.PartID;
+                        currentInhousePart.Price = CurrentModifyedPart.Price;
+                        currentInhousePart.InStock = CurrentModifyedPart.InStock;
+                        currentInhousePart.Min = CurrentModifyedPart.Min;
+                        currentInhousePart.Max = CurrentModifyedPart.Max;
+                        Inhouse currentModifyedInhousePart = CurrentModifyedPart as Inhouse;
+                        currentInhousePart.MachineID = currentModifyedInhousePart.MachineID;
+                        deletePart(currentPart);
+                        addPart(currentInhousePart);
+                    }
+
+                } 
+                else { Console.WriteLine("inventory scrip says part is null"); }
             }
             catch (Exception)
             {
