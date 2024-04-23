@@ -72,7 +72,7 @@
             // 
             // textBoxMin
             // 
-            this.textBoxMin.BackColor = System.Drawing.Color.LightCoral;
+            this.textBoxMin.BackColor = System.Drawing.Color.White;
             this.textBoxMin.Location = new System.Drawing.Point(472, 276);
             this.textBoxMin.Name = "textBoxMin";
             this.textBoxMin.Size = new System.Drawing.Size(100, 20);

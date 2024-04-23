@@ -110,7 +110,7 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber))
+            if (textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber) && textBoxMin.Text.Length > 0 && int.Parse(textBoxMin.Text) <= int.Parse(textBoxMax.Text))
             {
                 textBoxMax.BackColor = Color.White;
             }
@@ -125,7 +125,7 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMin_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber))
+            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber) && textBoxMax.Text.Length > 0 && int.Parse(textBoxMin.Text) <= int.Parse(textBoxMax.Text))
             {
                 textBoxMin.BackColor = Color.White;
             }
@@ -140,7 +140,7 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxInventory_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber))
+            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber) && textBoxMax.Text.Length > 0 && int.Parse(textBoxMax.Text) <= int.Parse(textBoxInventory.Text))
             {
                 textBoxInventory.BackColor = Color.White;
             }
