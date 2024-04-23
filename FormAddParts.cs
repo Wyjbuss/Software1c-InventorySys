@@ -70,8 +70,11 @@ namespace WyattBussellC968Software1C_
             }
             else buttonSave.Enabled = false;
 
-
-            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber))
+            if (textBoxMax.Text.Length <= 0)
+            {
+                textBoxInventory.BackColor = Color.LightCoral;
+            }
+            else if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber) && int.Parse(textBoxInventory.Text) >= int.Parse(textBoxMax.Text))
             {
                 textBoxInventory.BackColor = Color.White;
             }
@@ -103,11 +106,19 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMax.Text.Length <= 0) 
+            if (textBoxMax.Text.Length <= 0 || textBoxMin.Text.Length <= 0 || int.Parse(textBoxMax.Text) > int.Parse(textBoxInventory.Text) ) 
             { 
                 textBoxMax.BackColor = Color.LightCoral; 
             }
             else if (!textBoxMax.Text.Any(char.IsNumber))
+            {
+                textBoxMax.BackColor = Color.LightCoral;
+            }
+            else if (int.Parse(textBoxMax.Text) < int.Parse(textBoxMin.Text) && textBoxMax.Text.Length > 0 && textBoxMin.Text.Length > 0 )
+            {
+                textBoxMax.BackColor = Color.LightCoral;
+            }
+            else if (int.Parse(textBoxMax.Text) == -1 || int.Parse(textBoxMin.Text) == -1)
             {
                 textBoxMax.BackColor = Color.LightCoral;
             }
@@ -123,7 +134,7 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMin_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber))
+            if (textBoxMin.Text.Length > 0 && textBoxMax.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber) && int.Parse(textBoxMin.Text) <= int.Parse(textBoxMax.Text))
             {
                 textBoxMin.BackColor = Color.White;
             }
