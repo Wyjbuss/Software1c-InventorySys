@@ -21,7 +21,7 @@ namespace WyattBussellC968Software1C_
         public FormModifyProducts()
         {
             InitializeComponent();
-
+            
             dataGridViewParts.DataSource = Inventory.AllParts;
 
             //see a ful row selection
@@ -109,11 +109,12 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxInventory_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber))
+            if (textBoxInventory.Text.Length > 0 && textBoxInventory.Text.All(char.IsNumber) && textBoxMax.Text.Length > 0 && int.Parse(textBoxInventory.Text) >= int.Parse(textBoxMax.Text))
             {
                 textBoxInventory.BackColor = Color.White;
+                textBoxMax.BackColor = Color.White;
             }
-            else { textBoxInventory.BackColor = Color.LightCoral; };
+            else { textBoxInventory.BackColor = Color.LightCoral; textBoxMax.BackColor = Color.LightCoral; };
 
             if (allTextBoxesAreCleared())
             {
@@ -146,9 +147,10 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMax_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber))
+            if (textBoxMax.Text.Length > 0 && textBoxMax.Text.All(char.IsNumber) && textBoxMin.Text.Length > 0 && int.Parse(textBoxMax.Text) >= int.Parse(textBoxMin.Text) && int.Parse(textBoxMax.Text) <= int.Parse(textBoxInventory.Text))
             {
                 textBoxMax.BackColor = Color.White;
+                textBoxMin.BackColor = Color.White;
             }
             else { textBoxMax.BackColor = Color.LightCoral; };
 
@@ -161,9 +163,10 @@ namespace WyattBussellC968Software1C_
 
         private void textBoxMin_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber))
+            if (textBoxMin.Text.Length > 0 && textBoxMin.Text.All(char.IsNumber) && textBoxMax.Text.Length > 0 && int.Parse(textBoxMax.Text) >= int.Parse(textBoxMin.Text))
             {
                 textBoxMin.BackColor = Color.White;
+                textBoxMax.BackColor = Color.White;
             }
             else { textBoxMin.BackColor = Color.LightCoral; };
 
@@ -220,6 +223,7 @@ namespace WyattBussellC968Software1C_
 
         private void FormModifyProducts_Load(object sender, EventArgs e)
         {
+            textBoxInventory.BackColor = Color.White;
             //newProduct.Name = textBoxName.Text;
             //newProduct.Price = decimal.Parse(textBoxPriceCost.Text);
             //newProduct.InStock = int.Parse(textBoxInventory.Text);

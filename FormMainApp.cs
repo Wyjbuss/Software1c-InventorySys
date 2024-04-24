@@ -215,6 +215,17 @@ namespace WyattBussellC968Software1C_
                 //int currentIndex = dataGridViewParts.CurrentRow.Index;
                 //Inventory.AllParts.RemoveAt(currentIndex);
 
+                //check if part is associated with a product and delete it there too. 
+                if (Inventory.Product.Count > 0)
+                {
+                    //for (int i = 0; i < Inventory.Product.Count; i++)
+                    //{
+                    //    for (int j = 0; j < Inventory.Product.a ; j++)
+                    //    { 
+
+                    //    }
+                    //}
+                }
                 Inventory.deletePart(selectedPart);
                 //return selected part to null
                 selectedPart = null;
