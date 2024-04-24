@@ -12,6 +12,12 @@ namespace WyattBussellC968Software1C_
 {
     public partial class FormAreYouSure : Form
     {
+
+        public event EventHandler onContinueDeletePart;
+        public event EventHandler onCancelDeletePart;
+
+        public event EventHandler onContinueDeleteProduct;
+        public event EventHandler onCancelDeleteProduct;
         public FormAreYouSure()
         {
             InitializeComponent();
@@ -24,12 +30,14 @@ namespace WyattBussellC968Software1C_
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
-
+            onContinueDeletePart?.Invoke(this, EventArgs.Empty);
+            onContinueDeleteProduct?.Invoke(this, EventArgs.Empty);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            onCancelDeletePart?.Invoke(this, EventArgs.Empty);
+            onCancelDeleteProduct?.Invoke(this, EventArgs.Empty);
         }
     }
 }

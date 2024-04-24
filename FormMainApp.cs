@@ -19,6 +19,8 @@ namespace WyattBussellC968Software1C_
         public Parts selectedPart = null;
         private BindingList<Parts> LookedUpPartsList = new BindingList<Parts>();
         private BindingList<Products> lookedUpProductsList = new BindingList<Products>();
+
+        private FormAreYouSure frm;
         public mainApplicationWindow()
         {
             InitializeComponent();
@@ -190,29 +192,46 @@ namespace WyattBussellC968Software1C_
             
 
         }
-
+        
         private void buttonDeleteParts_MouseClick(object sender, MouseEventArgs e)
         {
-            // this is incorrect because this isnt using the function from the inventory
-            //but it works. 
-            
+            frm = new FormAreYouSure();
+            frm.Show();
+            frm.onContinueDeletePart += Frm_onContinueDelete;
+            frm.onCancelDeletePart += Frm_onCancelDelete;
+        }
+
+        private void Frm_onCancelDelete(object sender, EventArgs e)
+        {
+            frm.onContinueDeletePart -= Frm_onContinueDelete;
+            frm.onCancelDeletePart -= Frm_onCancelDelete;
+            frm.Close();
+        }
+
+        private void Frm_onContinueDelete(object sender, EventArgs e)
+        {
             if (Inventory.AllParts.Count > 0)
             {
                 //int currentIndex = dataGridViewParts.CurrentRow.Index;
                 //Inventory.AllParts.RemoveAt(currentIndex);
 
-                Inventory.deletePart(selectedPart); 
+                Inventory.deletePart(selectedPart);
                 //return selected part to null
                 selectedPart = null;
-                
-            }else if (selectedPart == null) 
-            { 
+
+                frm.onContinueDeletePart -= Frm_onContinueDelete;
+                frm.onCancelDeletePart -= Frm_onCancelDelete;
+                frm.Close();
+
+            }
+            else if (selectedPart == null)
+            {
                 Console.WriteLine("selected part is equil to null. Select a part to delete.");
-                /*include a popup that tells the user to select an item*/ 
+                /*include a popup that tells the user to select an item*/
             }
             else { /* Error, cant remove item when there is no item */ }
             
-
+            
         }
 
         private void dataGridViewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -319,18 +338,32 @@ namespace WyattBussellC968Software1C_
         private void buttonDeleteProducts_MouseClick(object sender, MouseEventArgs e)
         {
 
+            frm = new FormAreYouSure();
+            frm.Show();
+            frm.onCancelDeleteProduct += Frm_onCancelDeleteProduct;
+            frm.onContinueDeleteProduct += Frm_onContinueDeleteProduct;
+
+           
+        }
+
+        private void Frm_onContinueDeleteProduct(object sender, EventArgs e)
+        {
+            frm.onCancelDeleteProduct -= Frm_onCancelDeleteProduct;
+            frm.onContinueDeleteProduct -= Frm_onContinueDeleteProduct;
+
             if (Inventory.Product.Count > 0)
             {
                 //int currentIndex = dataGridViewParts.CurrentRow.Index;
                 //Inventory.AllParts.RemoveAt(currentIndex);
-                for(int i = 0;i < Inventory.Product.Count;i++)
+                for (int i = 0; i < Inventory.Product.Count; i++)
                 {
                     if (Inventory.Product[i] == selectedProduct)
                     {
                         Inventory.removeProduct(i);
+                        frm.Close();
                     }
                 }
-                
+
                 //return selected part to null
                 selectedPart = null;
 
@@ -341,6 +374,13 @@ namespace WyattBussellC968Software1C_
                 /*include a popup that tells the user to select an item*/
             }
             else { /* Error, cant remove item when there is no item */ }
+        }
+
+        private void Frm_onCancelDeleteProduct(object sender, EventArgs e)
+        {
+            frm.onCancelDeleteProduct -= Frm_onCancelDeleteProduct;
+            frm.onContinueDeleteProduct -= Frm_onContinueDeleteProduct;
+            frm.Close();
         }
 
         private void dataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
